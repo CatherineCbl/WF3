@@ -1,0 +1,111 @@
+
+body, p, header, footer, nav, div, img, a{
+    margin: 0;
+    padding:0;
+    border: 0;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+
+
+header{
+    height: 150px;
+    border-bottom: 1px solid #3F6BD4;
+}
+#logo{
+    height: 150px;
+    margin-left: 50px;
+    float: left
+}
+#drapeaux{
+    height: 150px;
+    margin-right: 0px;
+    float: left;
+}
+nav{
+    height: 25px;
+    width: 70%;
+    float: left;
+    margin-top: -25px;
+    margin-left: 437px;
+}
+a{
+    margin-left: 50px;
+    color:#000;
+}
+#milieu{
+    background: linear-gradient(#CACFD2, #fff);
+    width: 70%;
+    height:540px;
+    margin:  30px auto;
+    padding: 49px;
+}
+#contenu, #contact{
+    float: left;
+    width: 50%;
+    height: 600px;
+}
+
+
+#contenu1 img{
+    float: left;
+
+}
+.text{
+    float: right;
+    border-bottom: 2px solid grey;
+    display: block;
+    width: 70%;
+    margin-bottom: 15px;
+
+}
+footer{
+    background: grey;
+    height: 100px;
+    border-top: 1px solid #3F6BD4;
+    text-align: center;
+    color: #fff;
+}
+    footer a{
+        color: #3F6BD4;
+
+    }
+span{
+    color:#3F6BD4;
+    font-size: 30px;
+}
+#actualite, #flechegauche{
+    float: left;
+
+}
+#actualite{
+    margin-left: 215px;
+}
+#carte{
+    height:300px;
+    margin-left: 175px;
+}
+#bouton{
+    background: grey;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    padding-right: 90px;
+    padding-top: 10px;
+    font-size: 30px;
+    margin-left: 30px;
+}
+iframe{
+    margin-left:150px;
+    margin-top: 10px;
+}
+.liens{
+    width:35%;
+    margin-left: 565px;
+    margin-top: 20px;
+}
+.clear{
+    clear: both;
+}
