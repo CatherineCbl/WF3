@@ -1,0 +1,154 @@
+body, header, footer, div, nav, h1, h3, h4, p, li, ul, img, a{
+    margin: 0;
+    padding:0;
+    border: 0;
+    text-decoration: none;
+}
+body{
+    font-family: sans-serif;
+}
+header, footer{
+    height: 75px;
+}
+header{
+    background: linear-gradient(white, white, grey)
+}
+h1{
+    font-family: 'Yeseva One', cursive;
+}
+.tables{
+    border-bottom: 2px solid;
+    background: grey;
+    text-align: center;
+}
+#nom{
+    width: 70%;
+    height: 50px;
+    float: left;
+}
+span{
+    color: grey;
+}
+#telecharge{
+    width: 30%;
+    height: 50px;
+    float: left;
+}
+    #telecharge a{
+        color: grey;
+        margin-left: 90px;
+    }
+    #telecharge a:hover{
+        background: #fff;
+    }
+
+
+nav{
+    height: 25px;
+    width: 50%;
+    margin-left: 265px;
+}
+#entete{
+    height: 75px;
+    width: 50%;
+    margin:0 auto;
+}
+#milieu{
+    height:780px;
+    margin-top: 25px;
+}
+#conteneur1{
+    width: 50%;
+    margin-left: 20%;
+    height: 770px;
+    margin: 10px auto;
+}
+#gauche{
+    height:770px;
+    width: 65%;
+    float: left;
+}
+#droite{
+    height: 770px;
+    float: left;
+    width: 35%;
+}
+.conteneur{
+    border-radius: 5%;
+    border: 1px solid #000;
+    height: 70px;
+    width: 80%;
+    margin: 30px 0 0 65px;
+}
+#texte{
+    height: 60px;
+    width:50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
+}
+a{
+    text-decoration: none;
+    color:#000;
+    padding-right: 26px;
+    padding-left: 26px;
+    border-radius: 10%;
+    transition: 2s;
+
+}
+a:hover{
+    background: #355176
+}
+.telecharger{
+    color: grey;
+    text-align: right;
+}
+h3{
+    color: grey;
+}
+#imgfiche, #textefiche{
+    float: left;
+}
+ul{
+    list-style: none;
+}
+li{
+background-image: url('img/fleche.jpg');
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+#graphique{
+    margin-left: 180px;
+}
+footer{
+    border-top: 0.5px solid #000;
+    background: #e0e0e0;
+    text-align: center;
+}
+
+    footer a{
+        display: inline-block;
+        color: grey;
+        padding: 0;
+    }
+    footer a:hover{
+        background: #e0e0e0;
+    }
+
+textarea{
+    resize: none;
+}
+#contact{
+    text-align: center;
+}
+
+input{
+    width: 31em;
+}
+#envoi{
+    width: 5em;
+}

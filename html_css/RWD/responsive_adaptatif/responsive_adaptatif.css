@@ -1,0 +1,87 @@
+#conteneur{
+    border: 2px solid;
+    margin: 0 auto;
+    width: 960px;
+}
+header{
+    background: #f6523f;
+    height: 100px;
+}
+p{
+    margin: 0;
+}
+nav{
+    background: #653;
+    height: 30px;
+}
+section{
+    background: #32f65f;
+    margin: 20px;
+}
+footer{
+    background: #32f65f;
+    height: 50px;
+}
+.a{
+    float: left;
+    width: 460px;
+    height: 250px;
+    background: #369;
+}
+.b{
+    float: left;
+    width: 460px;
+    height: 250px;
+    background: #767676;
+}
+.c{
+    float: left;
+    width: 460px;
+    height: 250px;
+    background: #fda500;
+}
+.d{
+    float: left;
+    width: 460px;
+    height: 250px;
+    background: #aa2355;
+}
+.clear{
+    clear: both;
+}
+/*************************************** PARTIE RESPONSIVE ADAPTATIF ******************************************/
+@media screen and (max-width: 1050px) {
+    #conteneur{width: 750px;}
+.a, .b, .c, .d{width: 355px;}
+}
+
+/* entre 780px et 1050px, le #conteneur fera 750px et les zones .a, .b, .c, .d feront 355px */
+
+@media screen and (max-width: 780px) {
+    #conteneur{width: 550px;}
+.a, .b, .c, .d{width: 255px;}
+}
+
+/* entre 580px et 780px, le #conteneur fera 550px et les zones .a, .b, .c, .d feront 255px */
+
+@media screen and (max-width: 580px) {
+    #conteneur{width: 100%;}
+.a, .b, .c, .d{width: 100%; height: 125px;}
+section{margin: 0;}
+}
+
+/* entre 0px et 580px, le #conteneur fera 100% (580px ou -) et les zones .a, .b, .c, .d feront 100 %(580px ou -) */
+/* La règle @media permet d'indiquer et d'adapter la largeur de nos différents conteneur selon la taille et la résolution d'écran */
+
+@media screen and (max-width:1170px){
+    body:before{background: #32f6ff; content:"<1170"; position: absolute; color: #fff; padding: 2px; font-size: 12px;}
+}
+@media screen and (max-width:960px){
+    body:before{background: #fda500; content:"960"; position: absolute; color: #fff; padding: 2px; font-size: 12px;}
+}
+@media screen and (max-width:670px){
+    body:before{background: #337ab7; content:"<670"; position: absolute; color: #fff; padding: 2px; font-size: 12px;}
+}
+@media screen and (max-width:470px){
+    body:before{background: #000; content:"<470"; position: absolute; color: #fff; padding: 2px; font-size: 12px;}
+}

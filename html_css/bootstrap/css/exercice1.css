@@ -1,0 +1,33 @@
+
+.container{
+    border: 1px solid;
+}
+.bordureRouge{
+    border: 3px solid red;
+}
+.bordureVerte{
+    border: 3px solid green;
+
+}
+.bordureBleue{
+    border: 3px solid blue;
+
+}
+.bordureJaune{
+    border: 3px solid yellow;
+
+}
+.bordureOrange{
+    border: 3px solid orange;
+    padding: 10px;
+
+}
+.gheader, .gsection, .gfooter{
+    padding: 10px;
+}
+.header{
+    height: 80px;
+}
+.section{
+    height: 400px;
+}

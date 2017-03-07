@@ -1,0 +1,76 @@
+/************************** Unités de mesure CSS ************************/
+
+/*
+Les pixels (px)
+A choisir pour:
+Les traits et bordures et les éléments généraux, lorsqu'il s'agit de designs à largeur fixe.
+A éviter pour:
+La typographie, sauf s'il s'agit d'établir une taille de police de base
+
+Les pourcentages (%)
+A choisir pour:
+intégrer les images et des conteneurs à tailles variable; et pour définir la hauteur de la balise body dans certains cas.
+A éviter pour: la typographie (la police)
+
+em et ex:
+A choisir pour:
+La typographie (la police) et les éléments qui y sont liés (les marges par exemple)
+
+vh et vw:
+A choisir pour:
+La typographie et pour les conteneurs
+*/
+
+#conteneur{
+    border: 2px solid;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+    font-size: 1.2vw; /* vw spécifie une mesure en fonction de lataille de la fenêtre */
+}
+header{
+    background: #f6523f;
+    height:15vh;
+}
+p{
+    margin: 0;
+}
+nav{
+    background: pink;
+    height: 5vh;
+}
+section{
+    background: #653;
+    margin: 2%;
+}
+footer{
+    background: #32f65f;
+    height: 7.5vh;
+}
+.a{
+    float: left;
+    width: 50%;
+    height: 28vh;
+    background: #767676;
+}
+.b{
+    float: left;
+    width: 50%;
+    height: 28vh;
+    background: #764474;
+}
+.c{
+    float: left;
+    width: 50%;
+    height: 28vh;
+    background: #fda500;
+}
+.d{
+    float: left;
+    width: 50%;
+    height: 28vh;
+    background: #866971; ()
+}
+.clear{
+    clear: both;
+}

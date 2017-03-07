@@ -1,0 +1,21 @@
+.zone-adaptative{
+    background: orange;
+    color: white;
+    padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .zone-adaptative{
+        width: 750px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .zone-adaptative{
+        width: 970px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .zone-adaptative{
+        width: 1170px;
+    }
+}

@@ -1,0 +1,103 @@
+body{
+    color: #fff;
+}
+#conteneur{
+    /*border: 2px solid #000;*/
+    margin: 0 auto;
+    width: 1000px;
+}
+header{
+    min-height:80px;
+    background: purple;
+}
+nav{
+    min-height: 30px;
+    background: yellow;
+}
+#milieu{
+    min-height: 500px;
+
+}
+.casea, .caseb, .casec{
+    float: left;
+    min-height: 200px;
+    width: 250px;
+}
+.casea{
+    background: red;
+}
+.caseb{
+    width: 500px;
+    background: blue;
+}
+.casec{
+    background: green;
+}
+.cased{
+    min-height: 200px;
+    background: pink;
+}
+.casee, .casef, .caseg{
+    float: left;
+    width: 250px;
+    min-height: 200px;
+}
+.casee{
+    background: purple;
+    width: 250px;
+}
+.casef{
+    background: red;
+    width: 500px;
+}
+.caseg{
+    background: grey;
+    width: 250px;
+}
+
+footer{
+    min-height:100px;
+    background: red;
+}
+.clear{
+    clear: both;
+}
+
+@media screen and (max-width: 1050px) {
+    #conteneur{
+         width: 750px;
+    }
+    .casea, .casee{
+        width: 355px;
+    }
+    .caseb, .casef{
+        width: 355px;
+    }
+    #milieu, footer, nav, header, .casec, .cased{
+        width: 710px;
+    }
+}
+@media screen and (max-width: 780px) {
+    #conteneur{
+        width: 550px;
+    }
+    .casea, .casee{
+        width: 255px;
+    }
+    .caseb, .casef{
+        width: 255px;
+    }
+    #milieu, footer, nav, header, .casec, .cased{
+        width: 510px;
+    }
+}
+@media screen and (max-width: 580px) {
+    #conteneur{
+        width: 100%;
+    }
+    header, footer, nav, #milieu, .casea, .caseb, .casec, .cased, .casee, .casef, .caseg{
+        width: 100%;
+        height: 125px;
+    }
+
+}
