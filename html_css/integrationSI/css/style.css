@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+body{
+    background: url(../images.jpg)
+}
+header{
+    background: black;
+    height: 20vh;
+}
+nav{
+    background: grey;
+    height: 5vh;
+
+}
+    nav a{
+        color: #000;
+        transition: 2s;
+        padding-left: 20em;
+        margin: auto;
+    }
+        nav a:hover{
+            border-radius: 
+        }
+.container{
+
+    height: 65vh;
+}
+footer{
+    background: black;
+    height: 10vh;
+}
