@@ -12,17 +12,21 @@ header{
 }
 nav{
     background: grey;
-    height: 5vh;
+    height: 3vh;
+    padding-left: 650px;
 
 }
     nav a{
         color: #000;
-        transition: 2s;
-        padding-left: 20em;
-        margin: auto;
+        transition: 1s;
+        padding-right: 110px;
+
     }
         nav a:hover{
-            border-radius: 
+            border-radius:25px;
+            background: #fff;
+            padding-left: 100px;
+            font-size: 25px;
         }
 .container{
 
@@ -30,5 +34,14 @@ nav{
 }
 footer{
     background: black;
-    height: 10vh;
+    height: 12vh;
+}
+iframe{
+    margin-left: 654px;
+    margin-top: 30px;
+}
+.liencarte{
+    color: #000;
+    background: #fff;
+    border-radius: 25px;
 }

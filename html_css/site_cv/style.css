@@ -36,7 +36,7 @@ span{
 }
     #telecharge a{
         color: grey;
-        margin-left: 90px;
+        margin-left: 1000px;
     }
     #telecharge a:hover{
         background: #fff;
@@ -46,12 +46,12 @@ span{
 nav{
     height: 25px;
     width: 50%;
-    margin-left: 265px;
+    margin-left: 650px;
 }
 #entete{
     height: 75px;
     width: 50%;
-    margin:0 auto;
+
 }
 #milieu{
     height:780px;
