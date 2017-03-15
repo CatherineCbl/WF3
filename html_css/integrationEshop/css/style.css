@@ -3,25 +3,38 @@
     margin: 0;
     text-decoration: none;
 }
+
+input{
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+#rech{
+    height: 30px;
+}
 header{
     height: 11em;
-    background: grey;
+    background: #F8F8F8;
 }
 nav{
     height: 3em;
-    background: black;
+    background: linear-gradient(#fff, #eeeeec, grey);
 
 }
     nav a{
         text-decoration: none;
         color: #000;
+        border-right: 1px solid grey;
+        padding-left: 130px;
+        margin-bottom: 0;
     }
 #Haut{
     background: #5B5B5B;
     color: #fff;
 }
 #logo{
-    margin-left: 65px;
+    margin-left: 135px;
     margin-top: 15px;
     float: left;
 }
@@ -29,7 +42,7 @@ nav{
     width: 30%;
     margin-right: 60px;
     float: right;
-    padding-left: 90px;
+
 }
 .img, .txt{
     float: left;
@@ -43,6 +56,11 @@ nav{
     margin-left: 38px;
     float:left;
 }
+.droitehaut{
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+
+}
 section{
     height: 100em;
     background: grey;
@@ -52,17 +70,43 @@ section{
     height: 90em;
     background: black;
     margin: auto;
-    padding-top: 10em;
     width: 90%;
 }
 footer{
     height: 50em;
-    background: pink;
+    background: #F8F8F8;
 }
 #loupe{
     background: url(../img/loupe.jpg) no-repeat;
+    float:left;
 
 }
+#barrerecherche{
+    text-align: center;
+    display: inline-block;
+    width: 250px;
+    margin-top: 6px;
+}
+#gdeimage{
+    margin-top: 0;
+    height: 50em;
+}
+#images{
+width: 25%;
+margin-left: 40px;
+padding-left: 31px;
+}
+    #parquet{
+        margin-top: 35px;
+    }
+#gdeimage, #images{
+    float: left;
+}
+
+#lignehaut{
+    float:left;
+}
+.1
 .clear{
     clear: both;
 }
