@@ -3,110 +3,56 @@
     margin: 0;
     text-decoration: none;
 }
-
-input{
-    margin: 0;
-    padding: 0;
-    float: left;
+body{
+    font-family: 'Open Sans', sans-serif;
 }
-
-#rech{
-    height: 30px;
-}
-header{
-    height: 11em;
-    background: #F8F8F8;
-}
-nav{
-    height: 3em;
-    background: linear-gradient(#fff, #eeeeec, grey);
-
-}
-    nav a{
-        text-decoration: none;
-        color: #000;
-        border-right: 1px solid grey;
-        padding-left: 130px;
-        margin-bottom: 0;
-    }
-#Haut{
-    background: #5B5B5B;
+/* section class banner */
+.banner{
+    background: gray;
     color: #fff;
+    min-height: 25px;
 }
-#logo{
-    margin-left: 135px;
-    margin-top: 15px;
-    float: left;
+.bannerleft{
+    text-align: left;
 }
-#headerdroite{
-    width: 30%;
-    margin-right: 60px;
-    float: right;
-
-}
-.img, .txt{
-    float: left;
-    padding-left: 10px;
-    margin-top: 20px;
-}
-#droite1, #droite3{
-    float: left;
-}
-#droite2, #droite4{
-    margin-left: 38px;
-    float:left;
-}
-.droitehaut{
-    width: 100%;
-    border-bottom: 1px solid gainsboro;
-
-}
-section{
-    height: 100em;
-    background: grey;
-    padding-top: 65px;
-}
-#conteneur{
-    height: 90em;
-    background: black;
-    margin: auto;
-    width: 90%;
-}
-footer{
-    height: 50em;
-    background: #F8F8F8;
-}
-#loupe{
-    background: url(../img/loupe.jpg) no-repeat;
-    float:left;
-
-}
-#barrerecherche{
+.bannermiddle{
     text-align: center;
-    display: inline-block;
-    width: 250px;
-    margin-top: 6px;
 }
-#gdeimage{
-    margin-top: 0;
-    height: 50em;
-}
-#images{
-width: 25%;
-margin-left: 40px;
-padding-left: 31px;
-}
-    #parquet{
-        margin-top: 35px;
+    .bannermiddle em{
+        font-size: 12px;
+        font-weight: none;
     }
-#gdeimage, #images{
-    float: left;
+.bannerright{
+    text-align: right;
+}
+/* fin section class BANNER - 1ere ligne du site */
+
+/* HEADER zone avec logo */
+.logozone{
+    background: #ebe7e8;
+    color: black;
+    min-height: 165px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo{
+    font-size: 5vw;
+    font-weight: bold;
+}
+.logo span{
+    color: #fff;
+    background: #ff358b;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
-#lignehaut{
-    float:left;
+figcaption em{
+    letter-spacing: 0.1vw;
 }
-.1
-.clear{
-    clear: both;
+.blocfour em{
+    font-size: 12px;
 }
+.blocright{
+    text-align: right;
+}
+/* fin HEADER */

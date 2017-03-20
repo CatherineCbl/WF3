@@ -5,108 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-shop </title>
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="css/css/bootstrap.css">
 </head>
 <body>
-    <header>
-        <div id="Haut">
-            <span style="margin-left: 5em;">
-                Satisfait ou remboursé
-            </span>
-            <span style="margin-left: 63em;">
-                Besoin d'aide? <span class="glyphicon glyphicon-earphone"></span>01 28 02 29 45 (appel gratuit)
-            </span>
-            <span style="margin-left: 22em">
-                Paiement sécurisé
-            </span>
-        </div>
-        <a href="#"><img src="img/logo.jpg" alt="logo eshop"id="logo"></a>
-        <div id="headerdroite">
-            <div class="droitehaut">
-                <div id="droite1">
-                    <div class="img"><img src="img/logo1.jpg" alt="devis"></div>
-                    <div class="txt"><a href="#">Devis Personnalisé <br/>
-                    <span class="soustxt">Devis gratuit sous 24h</span> </a></div>
-                    <div class="clear"></div>
-                </div>
-                <div id="droite2" style="margin-left: 95px;">
-                    <div class="txt"><a href="#">Mon compte <br />
-                    <span class="soustxt">Se connecter</span></a></div>
-                    <div class="img"><img src="img/logo2.jpg" alt="se connecter"></div>
-                <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="droitehaut">
-                <div id="droite3">
-                    <div class="img"><img src="img/logo3.jpg" alt="Conseils"></div>
-                    <div class="txt"><a href="#">Conseils et questions <br />
-                    <span class="soustxt">Rappel automatique gratuit</span></a></div>
-                    <div class="clear"></div>
-                </div>
-                <div id="droite4">
-                    <div class="txt"><a href="#">Mon panier <br />
-                    <span class="soustxt">0 € - 0 Produit(s)</span></a></div>
-                    <div class="img"><img src="img/logo4.jpg" alt="Panier"></div>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-
-    </header>
-    <nav>
-        <a href="#"><span class="glyphicon glyphicon-home"></span></a>
-        <a href="#">Carrelage</a>
-        <a href="#">Parquet</a>
-        <a href="#">Extérieur</a>
-        <a href="#">Mur</a>
-        <a href="#">Accessoires</a>
-        <a href="#">Pose</a>
-        <a href="#">Sanitaires</a>
-        <a href="#">Contact</a>
-        <div id="barrerecherche">
-            <form id="recherche" method="post">
-            <input type="text" id="rech" name="saisie" placeholder="Rechercher un produit" />
-            <input type="submit" id="loupe" name="loupe" value="" style="width:30px; height:30px;"/>
-            </form>
-        </div>
-    </nav>
-    <section>
-        <div id="conteneur">
-            <div id="contenu1">
-
-
-                <div id="gdeimage">
-                    <a href="#"><img src="img/calque-1.jpg" alt="" style="width:88.889em;"></a>
-
-                </div>
-                <div id="images">
-                    <img src="img/calque-9.jpg" alt="voir le catalogue" style="height:18em;">
-                    <img src="img/calque-2.jpg" alt="voir tous les parquets" id="parquet" style="height:18em;">
-
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div id="contenu2">
-                <div id="lignehaut">
-                    <div class="1">
-                        <img src="img/paiement.jpg" alt="paiement">
-                        <p>PAIEMENT SÉCURISÉ</p>
+    <div class="container-fluid banner">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 bannerleft">Satisfait ou remboursé</div>
+                    <div class="col-md-4 bannermiddle">Besoin d'aide?
+                        <span class="glyphicon glyphicon-earphone"></span>01 28 02 29 45 <em>(appel gratuit)</em>
                     </div>
-                    <div class="2"></div>
-                    <div class="3"></div>
-                </div>
-                <div id="lignebas">
-
+                    <div class="col-md-4 bannerright">Paiement sécurisé</div>
                 </div>
             </div>
-        </div>
+        </section>
+    </div>
 
-    </section>
-    <footer>
+    <div class="container-fluid logozone">
+        <header>
+            <div class="container">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="logo"><span>E</span>SHOP</div>
+                        <figcaption><em>De l'élégance pour votre habitat !</em></figcaption>
+                    </div>
+                </div>
+                <div class="col-md-offset-1 col-md-6 blocfour">
+                    <div class="row">
+                        <div class="col-md-2"><img src="img/logo1.jpg" class="img-responsive" alt=""></div>
+                        <div class="col-md-4">Devis personnalisé<br />
+                            <em>Devis gratuit sous 24h</em>
+                        </div>
+                        <div class="col-md-4 blocright">Mon compte<br />
+                            <em>Se connecter</em>
+                        </div>
+                        <div class="col-md-2"><img src="img/logo2.jpg" class="img-responsive" alt=""></div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-2"><img src="img/logo3.jpg" class="img-responsive" alt=""></div>
+                        <div class="col-md-4">Conseils et questions<br />
+                            <em>Rappel automatique gratuit</em>
+                        </div>
+                        <div class="col-md-4 blocright">Mon panier<br />
+                            <em>0 € - 0 produit(s)</em>
+                        </div>
+                        <div class="col-md-2"><img src="img/logo4.jpg" class="img-responsive" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div><!-- fermeture CONTAINER du header -->
 
-    </footer>
+
+
+
+
+
 </body>
 </html>
