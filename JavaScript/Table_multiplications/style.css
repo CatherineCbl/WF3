@@ -1,0 +1,15 @@
+table{
+    border-collapse: collapse;
+}
+td{
+    border: 3px solid #fff;
+    height: 30px;
+    width: 30px;
+    background: cyan;
+    text-align: center;
+
+}
+.blue{
+    background-color: blue;
+    color: #fff;
+}
