@@ -54,15 +54,24 @@ function play(){
         state.timer= setInterval(next, 1000);
     }
 
-    else {  
+    else {
         clearInterval(state.timer);state.timer=null;
     }
 
 
 
 }
+function keyBoard(event){
+    if (event.keyCode == 39) {next()}
+    else if (event.keyCode == 37) {previous()}
+    else if (event.keyCode == 32) {play()}
+    else{}
 
 
+
+}
+
+document.addEventListener('keyup', keyBoard)
 
 
 buttonShow.addEventListener('click', showToolbar);
