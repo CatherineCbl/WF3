@@ -1,5 +1,4 @@
-var image = [];
-image = document.querySelectorAll('li');
+var image = document.querySelectorAll('li');
 var nb = 0;
 
 

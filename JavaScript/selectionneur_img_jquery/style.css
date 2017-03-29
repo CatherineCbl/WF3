@@ -1,0 +1,24 @@
+.conteneur{
+    width: 800px;
+}
+#photo-list li{
+    list-style-type: none;
+    padding: 0.5em;
+    padding: 1em;
+    display: inline-block;
+    transition: 1s;
+    border-radius: 15px;
+}
+    #photo-list li:hover{
+        background-color: silver;
+    }
+.selected{
+    background-color: forestgreen !important;
+}
+
+span{
+    font-style: italic;
+    color: red;
+    font-weight: bold;
+}
+ 
