@@ -1,0 +1,26 @@
+body{
+    padding-top: 70px;
+}
+h1{
+    background-color: #335;
+    color: #fff;
+    padding: 10px;
+    font-size: 17px;
+}
+.glyphicon-star-empty{
+    width: 5vw;
+}
+.rouge{
+    min-height: 35px;
+    background-color: darkred;
+    color: #fff;
+}
+.bleu{
+    min-height: 35px;
+    background-color: navy;
+    color: #fff;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
