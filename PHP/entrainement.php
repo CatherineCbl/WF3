@@ -1,4 +1,8 @@
-<style>h2{margin: 0; font-size: 20px; color: red;}</style>
+<style>
+h2{margin: 0; font-size: 20px; color: red;}
+td{border: 1px solid #000;}
+table{border-collapse: collapse; width: 20em;}
+</style>
 <h2>Ecritures et affichage</h2><!-- Nous pouvons écrire dut HTML dans un fichier ayant l'extension PHP l'inverse n'est pas possible -->
 <?php
 echo 'Bonjour'; //echo est une instruction d'affichage, nous pouvons le traduire par "affiche moi"
@@ -269,18 +273,236 @@ while($i < 3)
 echo "<br>";
 //
 $i = 0;
-while($i < 3)
+while($i < 3)// tant que $i est inférieur à 3
 {
 
 
     if ($i == 2) {
-        echo $i;
+        echo $i;// Je rentre 1 fois ici
 
     }
     else {
-        echo "$i---";
+        echo "$i---";// J e rentre 2 fois ici
 
     }
-    $i++;
+    $i++;// incrémentation du "compteur" pour que la boucle puisse tourner
 
 }
+//------------------------------------------------------------------------------
+// Boucle For
+echo '<br>';
+
+for ($j = 0; $j < 16; $j++)// valeur de départ; condition d'entrée; incrémentation
+{
+    echo $j."<br>";
+}
+// exercice : afficher 30 option via une boucle
+
+echo '<select>';
+ for ($k = 1; $k < 31; $k++)
+ {
+     echo '<option>'.$k.'</option>';
+ }
+echo '</select>';
+
+echo '<br>';
+
+echo '<select>';
+ for ($l = 30; $l >= 0; $l--) //décrémentation, equivaut a $l = $l - 1
+ {
+     echo '<option>'.$l.'</option>';
+ }
+echo '</select>';
+
+// Exercice : faire une boucle qui affiche de 0 à 9 sur le même ligne sous forme de tableau HTML
+echo "<table>";
+echo "<tr>";
+for ($m = 0; $m <= 9; $m++)
+{
+    echo '<td>'.$m.'</td>';
+}
+echo "</tr>";
+echo "</table>";
+echo "<br>";
+
+// Exercice: faire la même chose en allant de 0 à 99 sur plusieurs lignes sans faire 10 boucles
+
+echo "<table>";
+for ($ligne=0; $ligne < 10; $ligne++) {
+    echo "<tr>";
+    for ($cellule = 0; $cellule <= 9; $cellule++)
+    {
+        echo '<td>'.(10*$ligne+$cellule).'</td>';
+
+    }
+    echo "</tr>";
+}
+echo "</table>";
+echo "<br>";
+
+ // 2eme solution
+
+ $compteur = 0;
+ echo "<table>";
+ for ($ligne=0; $ligne < 10; $ligne++) {
+     echo "<tr>";
+     for ($cellule = 0; $cellule <= 9; $cellule++)
+     {
+         echo '<td>'.($compteur).'</td>';
+         $compteur++;
+     }
+     echo "</tr>";
+ }
+ echo "</table>";
+
+ echo '<hr><h2>Fonctions prédéfinies</h2>';
+ //Une fonction prédéfinie permet de réaliser un traitement spécifique, vous pouvez les consulter dans la doc, il y en a beaucoup (php.net)
+
+ echo '<br>Date : <br>';
+ echo date("d/m/Y"); // exemple de la fonction prédéfinie permettant de renvoyer la date. Le Y majuscule permet d'obtenir 2017 et le y miniscule permet d'obtenir 17
+ // quand on utilise une fonction prédéfinie, on doit toujours se demander ce que l'on doit lui envoyer comme argument/paramètres pour qu'elle s'execute et ce qu'elle peut retourner
+
+ //-----------------------------------------------------------------------------
+
+ echo '<hr><h2>Fonctions prédéfinies : traitement des chaines</h2>';
+
+ $email = "catherine.cabeuil@lepoles.com";
+ echo strpos($email, "@");// indique la position 17 et non 18 (compte commence de 0) du caractere "@" dans la chaine
+
+ $email2 = "Bonjour";
+ echo strpos($email2, "@");// cette ligne ne retourne rien, pourtant il ya bien quelque chose à l'intérieur: FALSE!
+ echo "<br>";
+
+ var_dump(strpos($email2, "@"));// grace au var_dump on apercoit le FALSE si le caractere "@" n'est pas trouvé. var_dump est donc une instruction d'affichage améliorée que l'on utilise régulièrement en phase de développement
+echo "<br>";
+ // strpos() est une fonction prédéfinie permettant de trouver la position d'un caractère dans une chaine:
+ //Succès : int (entier)
+ // echec : boolean false
+ /* argument(s):
+ 1. Nous devons lui fournir la chaine dans laquelle nous souhaitons chercher
+ 2.Nous devons lui fournir l'information à chercher.
+
+ contexte : nous pourrons l'utiliser pour savoir si une adresse email a un format conforme
+ */
+
+ //-----------------------------------------------------------------------------
+ $phrase = "Mettez une phrase à cet endroit";
+ echo iconv_strlen($phrase);
+ echo "<br>";
+
+ /*
+ iconv_strlen() est une fonction prédéfinie permettant de retourner la taille d'une chaine :
+ Succès : int (entier)
+ echec : boolean false
+ Nous devons lui fournir en argument la chaine dans laquelle nous souhairons connaitre la tailles
+
+ contexte : nous pourrons l'utiliser pour savoir si le pseudo et le mdp lors d'une inscription on des tailles conformes
+ */
+
+ //-----------------------------------------------------------------------------
+
+ $texte = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan posuere erat nec viverra. Etiam nec molestie quam, non auctor orci. Vestibulum vestibulum nulla in magna consequat porta. Maecenas eu porttitor mi, id tempus ligula. Mauris vitae maximus metus. Proin arcu quam, semper sed vulputate eget, tempor ut nunc. Aliquam scelerisque, justo sit amet volutpat rutrum, lorem nunc dignissim diam, nec pretium erat leo eu mi.";
+
+ echo substr($texte, 0, 20) . "...<a href=''>Lire la suite</a>";
+ /*
+ retourne une partie du texte seuelement, avec un lien pour la suite de l'article
+
+ substr() est une fonction prédéfinie permettant de retourner une partie de la chaine
+ Succès : int (entier)
+ echec : boolean false
+ argument(s):
+ 1. nous devons lui fournir la chaine que l'on souhaite couper
+ 2. nous devons lui préciser la position de début
+ 3. nous devons lui préciser la position de fin
+
+ Contexte : substr est souvent utilisé pour afficher des actualités avec une "accroche"
+ */
+
+ echo '<hr><h2>Fonctions utilisateur</h2>';
+// les fonctions qui ne sont pas prédéfinies dans le langage sont déclaré puis executé par l'utilisateur
+
+//Nous aurions pu donner un autre nom à cett fonction, c'est nous qui decidons
+ function separation()// déclaration d'une fonction prévue pour ne pas reevoir d'arguments
+ {
+     echo "<hr><hr><hr>";
+ }
+
+ separation();//execution de la fonction
+
+ //-----------------------------------------------------------------------------
+ // Fonction avec argument : les arguments sont des paramètres fournis à la fonction et lui permettent de compléter ou modifier son comportement initialement prevu
+ function bonjour($qui)// $qui, ça ne sort pas de nul part. Cela permet de recevoir un argument, il faut lui envoyer un argument
+ {
+     echo "Bonjour $qui <br>";
+ }
+
+$prenom = "Stevy";
+//execution
+ bonjour("Pierre");// si la fonction reçoit un argument, il faut lui envoyer un argument
+ bonjour($prenom);// l'argument peut aussi etre une variable
+
+ //-----------------------------------------------------------------------------
+ function appliqueTVA ($nombre)
+ {
+     return $nombre * 1.2;// (1+20/100) calcul du taux de TVA à 20%, une fonction peut retourner quelque chose (à ce moment la on quitte la fonction)
+ }
+echo appliqueTVA(150);// on éxecute la fonction, on place un echo puisque l'on utilise le mot clé return à l'intérieur de la fonctionne
+echo "<br>";
+// Exercice: Pourriez vous ameliorer cette fonction afin que l'on puisse calculé un nombre avec les taux de notre choix
+
+function appliqueTVA1 ($nombre, $taux)
+{
+    return $nombre * $taux;
+    //return $nombre * (1+$taux/100); calcul du taux
+}
+echo appliqueTVA(150, 1.2) . "<br>";
+// attention nous l'avons appelé appliqueTVA1 car 2 fonctions ne doivent pas posséder le même nomm
+
+//------------------------------------------------------------------------------
+meteo("hiver", 15);// il est possible d'éxecuter une fonction avant de l'avoir déclarée
+function meteo($saison, $temperature)
+{
+    echo "Nous sommes en $saison et il fait $temperature degré(s)<br>";
+}
+
+//Gérer le S de degrés avec un if/else
+function meteo1($saison, $temperature)
+{
+    if ($temperature == 1 OR $temperature == 0 OR $temperature == -1) {
+        echo "Nous sommes en $saison et il fait $temperature degré<br>";
+    } else {
+        echo "Nous sommes en $saison et il fait $temperature degrés<br>";
+    }
+}
+meteo1("hiver",15);
+/* ou
+function meteo1($saison, $temperature)
+{
+echo "Nous sommes en $saison et il fait $temperature";
+    if ($temperature > 1 ||  $temperature < -1) {
+        echo "degrés"
+    } else {
+        echo "degré<br>";
+    }
+}
+meteo1("hiver",15);
+*/
+//------------------------------------------------------------------------------
+$pays = "France";
+function affichagePays()
+{
+    global $pays;// le echo qui suit ne fonctionnerait pas si nous n'avions pas mis le mot-clé global pour importer tout ce qui est déclaré de l'espace global dans l'espace local
+    echo $pays;
+}
+affichagePays();
+// lorsqu'on travaille à l'intérieur d'une fonction PHP, on se trouve dans l'espace local, tout ce qui est déclaré à l'extérieur d'une fonction se trouve dans l'espace global (espace par défaut)
+
+//------------------------------------------------------------------------------
+function jourSemaine()
+{
+    $jour = "lundi";// variable locale
+    return $jour;// une fonction peut retourner quelque chose (à ce moment la on quitte la fonction)
+    echo "ALLO";
+}
+//echo $jour; ne fonctionne pas car cette variable n'est connue qu'à l'intérieur de la fonction
+echo jourSemaine();// On éxecute la fonction 
