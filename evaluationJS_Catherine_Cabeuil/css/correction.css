@@ -48,3 +48,42 @@ font-family: 'Merienda' , cursive;
     margin: 10px auto 20px;
     text-align: center;
 }
+.carousel-caption{
+    text-shadow: 2px 2px 2px rgba(0,0,0,.9)
+}
+/*Nos chats à adopter*/
+#about{
+    background-color: #DDD;
+    padding: 15px 0;
+}
+    #about h2{
+        color: #2F4073;
+        font-family: 'Merienda', cursive;
+        margin: 15px 0 20px;
+    }
+    #about .catHead{
+        background-color: #7885a5;
+        /*safari*/
+        -webkit-transition: background-color 1s linear;
+        /*mozilla*/
+        -moz-transition: background-color 1s linear;
+        /*Opera*/
+        -o-transition: background-color 1s linear;
+        transition: background-color 1s linear;
+    }
+    #about:hover .catHead{
+        background-color: #061339;
+    }
+/* le footer toujours collé en bas*/
+footer{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background-color: #061339;
+    }
+    footer p{
+        margin-bottom: 0;
+        line-height: 30px;
+        font-size: 30px;
+        color: #DDD;
+    }
