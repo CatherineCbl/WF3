@@ -29,7 +29,7 @@ echo '<hr><h2>Variables : types / déclaration / affectation</h2>';
 //$2a -> mauvaise syntaxe - $a2 -> bonne syntaxe
 // c'est nous qui définissons le nom de la variable
 $a = 127;// affectation de la valeur127 dans la variable nommée "a"
-echo gettype($a); // gettype est une foction prédéfinie nous permettant de voir le type d'une variable. S'il s'agit d'un entier : ineteger.
+echo gettype($a); // gettype est une fonction prédéfinie nous permettant de voir le type d'une variable. S'il s'agit d'un entier : ineteger.
 echo '<br>';
 $b = 1.5;
 echo gettype($b);// un nombre à virgule : double
@@ -505,4 +505,81 @@ function jourSemaine()
     echo "ALLO";
 }
 //echo $jour; ne fonctionne pas car cette variable n'est connue qu'à l'intérieur de la fonction
-echo jourSemaine();// On éxecute la fonction 
+echo jourSemaine();// On éxecute la fonction
+
+//------------------------------------------------------------------------------
+echo '<hr><h2>Tableau de données ARRAY</h2>';
+/*
+un tableau est déclaré un peu comme une variable améliorée, car on ne conserve pas qu'une valeur mais un ensemble de valeur
+*/
+$liste = array("grégory", "nathalie", "emilie", "françois", "georges");
+echo $liste;// ne fonctionne pas, on ne peut pas passer par un echo classique pour voir le contenu de notre tableau ARRAY
+
+echo "<pre>"; var_dump($liste); echo "</pre>";
+
+echo "<pre>"; print_r($liste); echo "</pre>";//print_r est une instruction d'affichage améliorée tout comme var_dump, elle est juste moins détaillée
+
+//contexte : bien souvent, lorsque l'on recuperera des informations en BDD, nous les retrouverons sous forme d'ARRAY
+
+//------------------------------------------------------------------------------
+echo '<hr><h2>Boucle foreach pour les tableaux de données ARRAY</h2>';
+
+$tab[] = "France";
+$tab[] = "Italie";
+$tab[] = "Espagne";
+$tab[] = "Angleterre";
+$tab[] = "Suisse";
+$tab[] = "Portugal";
+echo "<pre>"; print_r($tab); echo "</pre>";
+// Exercice : tenter de sortir et d'afficher "Italie" en passant par la tableau ARRAY sans faire un echo "Italie"
+echo $tab[1];
+
+echo '<hr>';
+//la boucle foreach est un moyen simple de passer en revue un tableau. Foreach fonctionne uniquement sur les tableaux, elle retourne une erreur si vous tentez de l'utiliser sur une variable d'un autre type.
+
+foreach($tab as $info)// le mot as fait partie du langage et est obligatoire
+{
+    echo $info . '<br>'; // on affiche successivement les éléments du tableau
+}
+
+echo "<hr>";
+foreach($tab as $indices => $valeur)// quand il ya 2 variables, la 1ere parcourt la colonne des indices et la seconde parcourt la colonne des valeurs
+{
+    echo $indices . " : " . $valeur . '<br>';// on affiche l'élément du tableau parcouru via $indice et $valeur
+}
+echo "<hr>";
+$couleur = array("j" => "jaune", "v" => "vert", "r" => "rouge", "o" => "orange"); // nous pouvons choisir les indices
+
+echo '<pre>'; print_r($couleur); echo "</pre>";
+
+echo 'Taille du tableau:' . count($couleur) . "<br>";//affiche 4
+echo 'Taille du tableau:' . sizeof($couleur) . "<br>";// sizeof est pareil que count et renvoie la taille du tableau. Ce sont des fonctions prédéfinies en PHP
+
+echo implode("-", $couleur) . "<br>";
+
+//------------------------------------------------------------------------------
+echo '<hr><h2>Tableau multidimensionnel</h2>';
+
+$tab_multi = array(0 => array("prenom" => "Grégory", "nom" => "Lacroix"),
+                    1 => array("prenom" => "Julien", "nom" => "Cottet"));
+// il est possible de choisir le nom des indices d'un array
+echo '<pre>'; print_r($tab_multi); echo '</pre>';
+
+// Exercice : tenter de sortir et d'afficher le "Cottet" du tableau multidimensionnel sans faire un echo 'Cottet'
+echo $tab_multi[1]["nom"];// Nous rentrons d'abord à l'indice "1" pour allez ensuite dans l'autre tableau à l'indice "nom"
+
+echo '<hr><h2>Les superglobales</h2>';
+/*
+Les superglobales sont des variables array, internes et prédéfinies par PHP, qui sont toujours disponibles, quel que soit le contexte
+
+Pour rappel, une variable array permet de conserver un ensemble de valeurs
+Lorsqu'on parle de disponibilité, on exprime le fait que les superglobales sont à la fois disponibles dans l'espace global (espace par defaut de php) mais aussi dans l'espace local (dans une fonction)
+$_GET -> contient les informations fournies en parametre via la method GET par l'URL
+$_POST -> contient les informations fournies par un formulaire via la methode POST
+$_SERVER -> contient toutes les informations fournies par le server Web
+$_FILES -> contient les informations liées à l'upload d'un (ou plusieurs) fichier par un formulaire
+$_COOKIE -> contient les informations fournies par un fichier cookie
+$_SESSION -> contient les informations de la session en cours
+*/
+echo "<hr>";
+echo "<pre>"; print_r($_SERVER); echo "</pre>";
