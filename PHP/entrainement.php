@@ -583,3 +583,26 @@ $_SESSION -> contient les informations de la session en cours
 */
 echo "<hr>";
 echo "<pre>"; print_r($_SERVER); echo "</pre>";
+
+//------------------------------------------------------------------------------
+echo '<hr><h2> Objets </h2>':
+// un objet est un autre type de données. Un peu comme un tableau array, il permet de regrouper des informations.
+// Cependant, cela va beaucoup plus loin car on peut y déclarer des variables mais aussi des fonctions.
+
+class Etudiant
+{
+    public $prenom = 'Grégory';
+    public $age = 25;
+    public function pays()
+    {
+        return "France";
+    }
+}
+
+$objet = new Etudiant();// new est un mot clé permettant d'instancier la classe et d'en faire un objet
+
+echo '<pre>'; print_r($objet); echo '</pre>';
+
+echo $objet->prenom . '<br>';// nous pouvons piocher dans un ARRAY avec les crochets[], nopus devions piocher dans un OBJET avec une fleche ->
+echo $objet->age . '<br>';
+echo $objet->pays() . '<br>'; // appel d'une méthode toujours avec des parenthèses
