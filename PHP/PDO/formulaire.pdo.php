@@ -1,13 +1,13 @@
 <?php
 // Exercice : créer un formulaire HTML avec les champs corespondant à la table employes(prenom, nom, sexe, service, date_embauche, salaire)
 //Connectez vous à la BDD et éxecuter une requête d'INSERTION
-$mysqli = new Mysqli ("localhost", "root", "", "entreprise");
+$pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 
 echo '<pre>';print_r($_POST);echo '</pre>';
 if ($_POST) {
-$result = $mysqli->query("INSERT INTO employes(prenom, nom, sexe, service, date_embauche, salaire)VALUES('$_POST[prenom]', '$_POST[nom]', '$_POST[sexe]', '$_POST[service]', '$_POST[date_embauche]', '$_POST[salaire]')");
-    echo $mysqli->affected_rows . 'enregistrement(s) affecté(s) par la requete INSERT<br>';
+$result = $pdo->exec("INSERT INTO employes(prenom, nom, sexe, service, date_embauche, salaire)VALUES('$_POST[prenom]', '$_POST[nom]', '$_POST[sexe]', '$_POST[service]', '$_POST[date_embauche]', '$_POST[salaire]')");
+    echo $result . 'enregistrement(s) affecté(s) par la requete INSERT<br>';
 
 
 }
@@ -24,7 +24,7 @@ $result = $mysqli->query("INSERT INTO employes(prenom, nom, sexe, service, date_
          </style>
      </head>
      <body>
-         <h1>Formulaire Mysqli</h1>
+         <h1>Formulaire PDO</h1>
         <form class="" action="" method="post">
             <label for="prenom">Prénom</label><br />
             <input type="text" name="prenom" value=""><br />
