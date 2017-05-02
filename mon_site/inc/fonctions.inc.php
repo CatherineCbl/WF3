@@ -27,3 +27,25 @@ function debug($var, $mode = 1)
     }
     echo "</div>";
 }
+
+//---------------------------------------------------------------------------------
+function internauteEstConnecte()
+{// Cette fonction m'indique si le membre est connecté(une fonction retourne toujours false par défaut)
+    if(!isset($_SESSION['membre']))// si la session "membre est non définie (elle ne peux être que définie si nous sommes passés par la page de connexion avec le bon mdp)"
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+//---------------------------------------------------------------------------------
+function internauteEstConnecteEtEstAdmin()
+{// Cette fonction m'indique si le membre est admin
+    if(internauteEstConnecte() && $_SESSION['membre']['statut'] == 1)// si la session membre est définie, nous regardons si il est admin, si c'est le cas nous retournons true 
+    {
+        return true;
+    }
+    return false;
+}
