@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Mon site</title>
-        <link rel="stylesheet" href=" inc/css/style.css">
+        <link rel="stylesheet" href="/github/WF3/mon_site/inc/css/style.css">
     </head>
     <body>
         <header>

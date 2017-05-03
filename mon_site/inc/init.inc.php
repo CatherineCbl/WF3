@@ -7,7 +7,7 @@ if($mysqli->connect_error)die("Un problème est survenu lors de la tentative de 
 session_start(); // on ouvre et on crée une session
 
 //--------------- CHEMIN
-define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . "github/WF3/mon_site/");
+define("RACINE_SITE", $_SERVER['DOCUMENT_ROOT'] . "/github/WF3/mon_site/");
 define("URL", 'http://localhost/github/WF3/mon_site/');
 
 //--------- VARIABLES
