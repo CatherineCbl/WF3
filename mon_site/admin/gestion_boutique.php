@@ -25,7 +25,7 @@ if (!empty($_POST))
     foreach ($_POST as $indice => $valeur) {
         $_POST[$indice] = htmlEntities(addSlashes($valeur));
     }
-    executeRequete("INSERT INTO produit(reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) VALUES('$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]', '$photo_bdd', '$_POST[prix]', '$_POST[stock]')");
+    executeRequete("REPLACE INTO produit(id_produit, reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) VALUES('$_POST[id_produit]', '$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]', '$photo_bdd', '$_POST[prix]', '$_POST[stock]')");
     $contenu .= "<div class='validation'>Le produit a bien été enregistré</div>";
     $_GET['action'] = 'affichage';
 }
@@ -132,7 +132,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'ajout' ||$_GET['action'] == '
         echo '<img src="' . $photo . '" width="90" height="90"><br>';
     }
     echo '
-    <input type="hidden" name="photo_actuelle" id="photo_actuelle"><br>
+    <input type="hidden" name="photo_actuelle" id="photo_actuelle" value="' . $photo . '"><br>
 
     <label for="prix">Prix</label><br>
     <input type="text" name="prix" value="' . $prix . '"><br /><br>
@@ -140,7 +140,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'ajout' ||$_GET['action'] == '
     <label for="stock">Stock</label><br>
     <input type="text" name="stock" value="' . $stock . '"><br /><br>
 
-    <input type="submit" value="Envoi"><br />
+    <input type="submit" value="'; echo ucfirst($_GET['action']) . ' du produit"><br />
     </form>';
 }
 
