@@ -43,9 +43,64 @@ function internauteEstConnecte()
 //---------------------------------------------------------------------------------
 function internauteEstConnecteEtEstAdmin()
 {// Cette fonction m'indique si le membre est admin
-    if(internauteEstConnecte() && $_SESSION['membre']['statut'] == 1)// si la session membre est définie, nous regardons si il est admin, si c'est le cas nous retournons true 
+    if(internauteEstConnecte() && $_SESSION['membre']['statut'] == 1)// si la session membre est définie, nous regardons si il est admin, si c'est le cas nous retournons true
     {
         return true;
     }
     return false;
+}
+
+//---------------------PANIER/COMMANDE/PAIEMENT----------------------------------
+function creationPanier()
+{
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = array();
+        $_SESSION['panier']['titre'] = array();
+        $_SESSION['panier']['id_produit'] = array();
+        $_SESSION['panier']['quantite'] = array();
+        $_SESSION['panier']['prix'] = array();
+    }
+}
+// Soit le panier n'xiste pas, on le crée, on retourne TRUE
+// Soit le panier existe déja, on retourne directement TRUE
+//------------------------------------------------------------------------
+//Cette fonction permet d'ajouter un produit dans le panier
+function ajouterProduitDansPanier($titre,$id_produit,$quantite,$prix)
+{
+    creationPanier();
+    //nous devons savoir si l'id_produit que l'on souhaite ajouter est déjà présent dans la session du panier ou non
+    $position_produit = array_search($id_produit, $_SESSION['panier']['id_produit']);//retourne un chiffre si le produit existe
+
+    if ($position_produit !== false ) {
+        $_SESSION['panier']['quantite'][$position_produit] += $quantite;
+        //Nous allons précisement à l'indice de ce produit et nous ajoutons la nouvelle quantité
+    }
+    else {// sinon l'id_produit du produit n'existe pas dans le panier on ajoute l'id produit du produit dans un nouvel indice du tableau. Les crochets [] permettent de mettre à l'indice suivant
+        $_SESSION['panier']['titre'][] = $titre;
+        $_SESSION['panier']['id_produit'][] = $id_produit;
+        $_SESSION['panier']['quantite'][] = $quantite;
+        $_SESSION['panier']['prix'][] = $prix;
+    }
+}
+//--------------------------------------------------------------------------
+function montantTotal()
+{
+    $total = 0;
+    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)//tant que $i est inférieur au nombre de produit dans le panier
+    {
+        $total += $_SESSION['panier']['quantite'][$i] * $_SESSION['panier']['prix'][$i];// on multiplie la quantite par le prix ex 1*10€ ou 3*10 sans remplacer pour autant la derniere valeur contenu dans la variable $total
+    }
+    return round($total,2);// prix total pour tous les produits(2 chiffres après la virgule maxi)
+}
+
+//------------------------------------------------------------------------------
+function retirerProduitDuPanier($id_produit_a_supprimer)
+{
+    $position_produit = array_search($id_produit_a_supprimer, $_SESSION['panier']['id_produit']);
+    if ($position_produit !== false) {
+        array_splice($_SESSION['panier']['titre'], $position_produit, 1);
+        array_splice($_SESSION['panier']['id_produit'], $position_produit, 1);
+        array_splice($_SESSION['panier']['quantite'], $position_produit, 1);
+        array_splice($_SESSION['panier']['prix'], $position_produit, 1);
+    }
 }
