@@ -1,4 +1,5 @@
 <?php
+/*
 require_once("../inc/init.inc.php");
 //debug($_POST);
 //-----------------SUPPRESSION------------------
@@ -119,4 +120,59 @@ echo $contenu;
 
 
 require_once("../inc/bas.inc.php");
+*/
+
+require_once("../inc/init.inc.php");
+if (!internauteEstConnecteEtEstAdmin()) {
+    header("location: ../connexion.php");
+    exit();
+}
+//--------- AFFICHAGE ---------//
+require_once("../inc/haut.inc.php");
+    echo "<h1>Voici les commandes passées sur le site</h1>";
+    echo '<table border="1"><tr>';
+    $information_sur_les_commandes = executeRequete("SELECT c.*, m.pseudo, m.adresse, m.ville, m.code_postal FROM commande c LEFT JOIN membre ON m.id_membre = c.id_membre");
+
+    echo "Nombre de commande(s) : " . $information_sur_les_commandes->num_rows;
+    while ($colonne = $information_sur_les_commandes->fetch_field()) {
+        echo '<th>' . $colonne->name . '</th>';
+    }
+    echo "</tr>";
+    $chiffre_affaire = 0;
+    while ($commande = $information_sur_les_commandes->fetch_assoc()) {
+        $chiffre_affaire += $commande['montant'];
+        // $chiffre_affaire = $chiffre_affaire + $commande['montant'];
+        echo "<div>";
+        echo "<tr>";
+        echo '<td><a href="gestion_commande.php?suivi=' . $commande['id_commande'] . '"> Voir la commande ' . $commande['id_commande'] . '</a></td>';
+        echo '<td>' . $commande['id_commande'] . '</td>';
+        echo '<td>' . $commande['id_membre'] . '</td>';
+        echo '<td>' . $commande['montant'] . '</td>';
+        echo '<td>' . $commande['date_enregistrement'] . '</td>';
+        echo '<td>' . $commande['etat'] . '</td>';
+        echo '<td>' . $commande['pseudo'] . '</td>';
+        echo '<td>' . $commande['adresse'] . '</td>';
+        echo '<td>' . $commande['ville'] . '</td>';
+        echo '<td>' . $commande['code_postal'] . '</td>';
+        echo "</tr>";
+        echo "</div>";
+    }
+echo "</table><br>";
+echo "Calcul du montant total des revenus : <br>";
+echo "Le chiffre d'affaire de la société est de : $chiffre_affaire € <br>";
+if (isset($_GET['suivi'])) {
+    echo "<h1>Voici le détail pour la commande</h1>";
+    echo '<table border="1">';
+    echo '<tr>';
+    $information_sur_les_commandes("SELECT * FROM details_commande WHERE id_commande = $_GET[suivi]");
+    while ($colonne = $information_sur_les_commandes->fetch_field()) {
+        echo '<th>' . $colonne->name . '</th>';
+    }
+    echo '</tr>';
+}
+
+
+
+require_once("../inc/bas.inc.php");
+
  ?>

@@ -6,8 +6,10 @@ body{
     font-family: verdana;
     font-size: 12px;
 }
-a:hover{
+a{
     text-decoration: none;
+}
+a:hover{
     color: blue;
 }
 .conteneur{
