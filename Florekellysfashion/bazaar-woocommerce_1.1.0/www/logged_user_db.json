@@ -1,0 +1,37 @@
+{
+  "user":{
+    "id": 1,
+    "first_name": "Billy",
+    "last_name": "Fowler",
+    "password": "billy12345678",
+    "email": "bfowler0@gmail.com",
+    "picture": "https://s3.amazonaws.com/uifaces/faces/twitter/teclaro/128.jpg",
+    "shipping_addresses": [
+      {
+        "full_name": "Billy Fowler",
+        "street": "0 Waubesa Junction",
+        "city": "Houston",
+        "state": "TX",
+        "postal_code": "77020",
+        "phone": "1-(713)471-0205"
+      },
+      {
+        "full_name": "Betty Adams",
+        "street": "50 Northfield Way",
+        "city": "Brooklyn",
+        "state": "NY",
+        "postal_code": "11210",
+        "phone": "1-(347)846-3569"
+      }
+    ],
+    "credit_cards": [
+      {
+        "full_name": "Billy Fowler",
+        "number": "**** **** **** 4295",
+        "type": "visa",
+        "ccv": 556,
+        "expiration": "11/18/2016"
+      }
+    ]
+  }
+}

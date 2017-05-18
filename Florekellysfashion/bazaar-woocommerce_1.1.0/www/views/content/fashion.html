@@ -1,0 +1,114 @@
+<ion-view class="fashion-content-view" cache-view="false">
+  <ion-header-bar class="fashion-content-header">
+    <div class="buttons">
+      <button class="button button-clear back-button" ng-click="goBack()">Back</button>
+    </div>
+    <h1 class="title">{{product.name}}</h1>
+    <div class="buttons">
+      <button class="button button-clear share-button">Share</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-slide-box class="product-images-slider">
+      <ion-slide>
+        <div class="image-container">
+          <pre-img ratio="full">
+            <img class="product-image" ng-src="{{ product.images[0].src }}" spinner-on-load/>
+          </pre-img>
+        </div>
+      </ion-slide>
+      <ion-slide ng-repeat="product_image in showcase_images track by $index">
+        <div class="image-container" multi-bg="[product_image.src]"></div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div class="row brief-info-row">
+      <div class="col">
+        <h3 class="product-name">{{product.name}}</h3>
+        <h5 class="product-store">topshop</h5>
+        <h4 class="product-price" ng-if="product.sale_price">${{product.sale_price}}</h4>
+        <h4 class="product-price" ng-if="!product.sale_price">${{product.regular_price}}</h4>
+      </div>
+    </div>
+    <div class="row options-row">
+      <div class="col pick-color-col">
+        <button class="button button-block icon-right ion-chevron-right pick-color-button" ng-click="openColorChooser()">
+          Color
+        </button>
+      </div>
+      <div class="col pick-size-col">
+        <button class="button button-block icon-right ion-chevron-right pick-size-button" ng-click="openSizeChooser()">
+          Size
+        </button>
+      </div>
+    </div>
+    <div class="row purchase-row">
+      <div class="col">
+        <button class="button button-block add-to-cart-button" ng-click="addToCart(product)">Add to cart</button>
+      </div>
+    </div>
+    <div class="row description-row" ng-if="description !== ''">
+      <div class="col">
+        <h4 class="fashion-section-title">About me</h4>
+        <p class="description-paragraph" ng-bind-html="description"/>
+      </div>
+    </div>
+    <div class="row reviews-row" ng-if="reviews.length > 0">
+      <div class="col">
+        <h4 class="fashion-section-title">Reviews</h4>
+        <article class="row review-item" ng-repeat="review in reviews track by review.id">
+        	<div class="col">
+        		<div class="row top-row">
+        			<div class="col image-col">
+                <pre-img ratio="_1_1">
+                  <img class="review-image" ng-src="http://www.gravatar.com/avatar/{{ review.email | gravatar }}" spinner-on-load>
+                </pre-img>
+        			</div>
+        			<div class="col description-col">
+        				<h3 class="review-author-name">{{ review.name }}</h3>
+        			</div>
+        			<div class="col reputation-col">
+        				<span class="review-date">{{review.date_created | amDateFormat:'YYYY, MMM Do'}}</span>
+        			</div>
+        		</div>
+        		<div class="row middle-row">
+        			<div class="col">
+        				<p class="review-description">
+        					{{ review.review }}
+        				</p>
+        			</div>
+        		</div>
+        	</div>
+        </article>
+      </div>
+    </div>
+    <h2 class="suggested-title">Why don’t you try?</h2>
+    <div class="row suggested-products-row">
+      <div class="col col-50 fashion-product-container" ng-repeat="related_product in product.related_products">
+        <div class="list card">
+          <div class="item item-image product-image-wrapper">
+            <a class="product-anchor" ui-sref="main.app.feed.fashion.content({productId: related_product.data.id})">
+              <pre-img ratio="_3_4">
+                <img class="product-image" ng-src="{{ related_product.data.images[0].src }}" spinner-on-load>
+              </pre-img>
+            </a>
+          </div>
+          <div class="item item-body product-description-wrapper">
+            <h5 class="product-title">
+              <a class="product-anchor">
+                {{ related_product.data.name }}
+              </a>
+            </h5>
+            <p class="product-description" ng-if="related_product.data.sale_price">
+              <b class="actual-price">{{product.data.sale_price}}</b>
+              <span class="previous-price" ng-show="related_product.data.price != '0'">${{related_product.data.regular_price}}</span>
+            </p>
+            <p class="product-description" ng-if="!related_product.data.sale_price">
+              <span class="actual-price" ng-show="related_product.data.price != '0'">${{related_product.data.regular_price}}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

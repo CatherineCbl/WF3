@@ -1,0 +1,32 @@
+<ion-view class="account-orders-view account-sub-view" cache-view="false" view-title="My Orders">
+  <ion-content>
+    <div class="orders-row">
+      <div class="row row-center empty-orders-row" ng-if="orders.length == 0">
+        <div class="col">
+          <h3 class="no-orders-title">You don't have orders yet</h3>
+        </div>
+      </div>
+      <div class="card order-item" ng-repeat="order in orders track by order.id">
+        <div class="item item-divider order-header">
+          <span class="header-title">{{order.date_completed | amDateFormat:'DD MMM, YYYY'}}</span>
+        </div>
+        <div class="item item-text-wrap order-content">
+          <div class="row order-product" ng-repeat="product in order.line_items track by product.product_id">
+            <div class="col col-20 product-image-col">
+              <div class="product-image-container" remote-image="getImage(product.product_id)" multi-bg></div>
+            </div>
+            <div class="col col-center name-col">
+              <span class="product-name">{{product.name}}</span>
+            </div>
+            <div class="col col-center">
+              <span class="product-price">${{product.total}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item-divider order-footer" ng-class="'{{order.status}}'">
+          <span class="status-title">{{order.status}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

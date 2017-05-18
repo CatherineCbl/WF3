@@ -1,0 +1,57 @@
+<ion-view class="search-view" cache-view="false">
+  <ion-header-bar class="search-header">
+    <form class="row item-input-inset search-row" name="search_form" novalidate>
+      <div class="col col-75">
+        <label class="item-input-wrapper search-label">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" name="search_query" ng-model="search.query" required>
+        </label>
+      </div>
+      <div class="col">
+        <button class="button button-clear cancel-button" ng-click="doSearch()" ng-disabled="search_form.$invalid">
+          Search
+        </button>
+      </div>
+    </form>
+  </ion-header-bar>
+  <ion-content>
+    <section ng-if="products.length > 0" ng-include="'views/common/sort-and-filters-bar.html'"></section>
+    <div class="row row-center empty-search-row" ng-if="products.length == 0">
+      <div class="col">
+        <h3 class="no-products-title" ng-show="search_error && search.query">{{ search_error }}</h3>
+        <h3 class="no-products-title" ng-show="(!search.query || !search_form.$submitted) && !search_error">Search through our beautiful products</h3>
+      </div>
+    </div>
+    <div class="search-results-container" ng-if="products.length > 0">
+      <div class="row products-row">
+        <div class="col col-50 fashion-product-container" ng-repeat="product in search.results = products">
+          <div class="list card">
+            <div class="item item-image product-image-wrapper">
+              <a class="product-anchor" ui-sref="main.app.feed.fashion.content({productId: product.id})">
+                <pre-img ratio="_3_4">
+                  <img class="product-image" ng-src="{{ product.images[0].src }}" spinner-on-load>
+                </pre-img>
+              </a>
+            </div>
+            <div class="item item-body product-description-wrapper">
+              <h5 class="product-title">
+                <a class="product-anchor" ui-sref="main.app.feed.fashion.content({productId: product.id})">
+                  {{ product.name }}
+                </a>
+              </h5>
+              <p class="product-description" ng-if="product.sale_price">
+                <b class="actual-price">${{product.sale_price}}</b>
+                <span class="previous-price" ng-show="product.price != '0'">${{product.regular_price}}</span>
+              </p>
+              <p class="product-description" ng-if="!product.sale_price">
+                <span class="actual-price" ng-show="product.price != '0'">${{product.regular_price}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

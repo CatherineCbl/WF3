@@ -1,0 +1,233 @@
+.feed-view
+{
+	background-color: $feed-bg;
+
+	.feed-header
+	{
+		background-color: $feed-header-bg !important;
+		background: $feed-header-bg !important;
+		border: none !important;
+		background-size: 0px !important; // To remove bottom border on header
+
+		.logo-container
+		{
+			width: 34%;
+			height: $bar-height - (2*$bar-padding-portrait);
+			line-height: $bar-height - (2*$bar-padding-portrait);
+			position: absolute;
+		  top: 5px;
+		  bottom: 5px;
+		  right: 33%;
+
+			.logo-image
+			{
+				width: 100%;
+				vertical-align: middle;
+			}
+		}
+
+		.buttons
+		{
+			position: absolute;
+	    top: 5px;
+	    right: 5px;
+	    bottom: 5px;
+		}
+
+		.cart-button
+		{
+			min-height: 0px;
+			height: $cart-button-height;
+			margin: (($bar-height - (2*$bar-padding-portrait)) - $cart-button-height)/2 0px;
+
+			.cart-image
+			{
+				height: 100%;
+			}
+		}
+
+		.cart-badge
+		{
+			font-size: 9px;
+			line-height: 12px;
+			padding: 0px 4px;
+			position: absolute;
+		  top: -5px;
+		  right: 0px;
+
+			@include badge-style($cart-badge-bg, $cart-badge-color);
+
+			& + .cart-image
+			{
+				margin-right: 5px;
+			}
+		}
+	}
+
+	// <ion-content>
+	.categories-feeds-content
+	{
+		& > .scroll
+		{
+			height: 100%;
+		}
+
+		.pre-transparency,
+		.post-transparency
+		{
+			width: 15%;
+			height: $sliding-categories-height;
+			position: fixed;
+			top: 0px;
+			bottom: 0px;
+			z-index: 1;
+		}
+		.pre-transparency
+		{
+			left: 0px;
+			@include linear-gradient(right, rgba($categories-default-bg, 0) 0%, $categories-default-bg 100%);
+
+			&.main-app-feed-featured
+			{
+				@include linear-gradient(right, rgba($featured-bg, 0) 0%, $featured-bg 100%);
+			}
+			&.main-app-feed-women
+			{
+				@include linear-gradient(right, rgba($women-bg, 0) 0%, $women-bg 100%);
+			}
+			&.main-app-feed-men
+			{
+				@include linear-gradient(right, rgba($men-bg, 0) 0%, $men-bg 100%);
+			}
+			&.main-app-feed-kids
+			{
+				@include linear-gradient(right, rgba($kids-bg, 0) 0%, $kids-bg 100%);
+			}
+			&.main-app-feed-home
+			{
+				@include linear-gradient(right, rgba($home-bg, 0) 0%, $home-bg 100%);
+			}
+		}
+		.post-transparency
+		{
+			right: 0px;
+			@include linear-gradient(left, rgba($categories-default-bg, 0) 0%, $categories-default-bg 100%);
+
+			&.main-app-feed-featured
+			{
+				@include linear-gradient(left, rgba($featured-bg, 0) 0%, $featured-bg 100%);
+			}
+			&.main-app-feed-women
+			{
+				@include linear-gradient(left, rgba($women-bg, 0) 0%, $women-bg 100%);
+			}
+			&.main-app-feed-men
+			{
+				@include linear-gradient(left, rgba($men-bg, 0) 0%, $men-bg 100%);
+			}
+			&.main-app-feed-kids
+			{
+				@include linear-gradient(left, rgba($kids-bg, 0) 0%, $kids-bg 100%);
+			}
+			&.main-app-feed-home
+			{
+				@include linear-gradient(left, rgba($home-bg, 0) 0%, $home-bg 100%);
+			}
+		}
+	}
+
+	// <ion-scroll>
+	.sliding-list-scroll
+	{
+		height: $sliding-categories-height;
+
+		.sliding-list-bg
+		{
+			.sliding-list
+			{
+				background-color: $categories-default-bg;
+			}
+
+			&.main-app-feed-featured
+			{
+				.sliding-list
+				{
+					background-color: $featured-bg;
+				}
+			}
+			&.main-app-feed-women
+			{
+				.sliding-list
+				{
+					background-color: $women-bg;
+				}
+			}
+			&.main-app-feed-men
+			{
+				.sliding-list
+				{
+					background-color: $men-bg;
+				}
+			}
+			&.main-app-feed-kids
+			{
+				.sliding-list
+				{
+					background-color: $kids-bg;
+				}
+			}
+			&.main-app-feed-home
+			{
+				.sliding-list
+				{
+					background-color: $home-bg;
+				}
+			}
+		}
+
+		.sliding-list
+		{
+			@include display(inline-flex);
+
+			.sliding-item
+			{
+				min-width: 100px;
+				height: $sliding-categories-height;
+				line-height: $sliding-categories-height;
+				text-align: center;
+
+				& > a
+				{
+					padding: 0px 8px;
+					display: inline-block;
+					// display: block;
+					color: #FFF;
+					text-transform: uppercase;
+					text-decoration: none;
+				}
+
+				&.active
+				{
+					font-size: 18px;
+					font-weight: 600;
+				}
+
+				&.main-app-feed-home
+				{
+					width: 128px;
+				}
+			}
+		}
+	}
+
+	// <ion-nav-view>
+	.category-feed
+	{
+		@include calc(height, "100% - #{($sliding-categories-height)}");
+	}
+}
+
+.feed-sub-view
+{
+
+}
