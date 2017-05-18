@@ -302,7 +302,7 @@ angular.module('FloreKellysApp.app.services', [])
   this.getTrends = function(){
     var dfd = $q.defer();
 
-    $http.get('database.json').success(function(database) {
+    $http.get('http://localhost/github/WF3/site_app/api/browse.php').success(function(database) {
       dfd.resolve(database.trends);
     });
 
@@ -312,7 +312,7 @@ angular.module('FloreKellysApp.app.services', [])
   this.getTrend = function(trendId){
     var dfd = $q.defer();
 
-    $http.get('database.json').success(function(database) {
+    $http.get('http://localhost/github/WF3/site_app/api/browse.php').success(function(database) {
       var trend = _.find(database.trends, function(trend){ return trend.id == trendId; });
       dfd.resolve(trend);
     });
@@ -325,7 +325,7 @@ angular.module('FloreKellysApp.app.services', [])
   this.getCategories = function(){
     var dfd = $q.defer();
 
-    $http.get('database.json').success(function(database) {
+    $http.get('http://localhost/github/WF3/site_app/api/browse.php').success(function(database) {
       dfd.resolve(database.categories);
     });
 
@@ -335,7 +335,7 @@ angular.module('FloreKellysApp.app.services', [])
   this.getCategory = function(categoryId){
     var dfd = $q.defer();
 
-    $http.get('database.json').success(function(database) {
+    $http.get('http://localhost/github/WF3/site_app/api/browse.php').success(function(database) {
       var category = _.find(database.categories, function(category){ return category.id == categoryId; });
       dfd.resolve(category);
     });

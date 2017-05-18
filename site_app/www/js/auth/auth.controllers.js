@@ -32,12 +32,25 @@ angular.module('FloreKellysApp.auth.controllers', [])
   };
 })
 
-.controller('CreateAccountCtrl', function($scope, $state){
+.controller('CreateAccountCtrl', function($scope, $state, $http){
 
 	$scope.user = {};
 
 	$scope.doSignUp = function(){
-		$state.go('app.feed');
+		$http({
+			url:"http://localhost/github/WF3/site_app/api/register.php",
+			method:"POST",
+			data: {
+				"name":$scope.user.name,
+				"userName":$scope.user.userName,
+				"email":$scope.user.email,
+				"password":$scope.user.password,
+				"phone":$scope.user.phone
+			}
+		}).success(function(response){
+			$state.go("app.browse")
+		})
+		//$state.go('app.feed');
 	};
 })
 
