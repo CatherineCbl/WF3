@@ -1,6 +1,6 @@
 <?php
 
-    class vehicule{
+    class Vehicule{
         private $modele;
         private $marque;
         private $portes;
@@ -23,7 +23,25 @@
         public function reculer($distance){
             $this->kilometrage -= $distance;// ou $this->kilometrage = distance - $this->kilometrage
         }
+
+        public function carteGrise(){
+            echo "Modèle :".$this->modele."<br />";
+            echo "Marque :".$this->marque."<br />";
+            echo "Nombre de portes :".$this->portes."<br />";
+            echo "Année de création :".$this->annee."<br />";
+            echo "Couleur:".$this->couleur."<br />";
+            echo "Kilométrage :".$this->kilometrage."<br />";
+        }
     }
 
-    $audiTT = new vehicule();
+    $audiTT = new Vehicule();
     $audiTT->creationVehicule("TT", "Audi", 3, 2007, "Noir");
+    $audiTT->avancer(200);
+    $audiTT->carteGrise();
+
+    echo "<br />";
+
+    $renaultMegane = new Vehicule();
+    $renaultMegane->creationVehicule("Mégane", "Renault", 5, 2005, "Bleue");
+    $renaultMegane->avancer(200);
+    $renaultMegane->carteGrise();
