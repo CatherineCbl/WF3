@@ -78,7 +78,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'ajout' ||$_GET['action'] == '
         $resultat = executeRequete("SELECT * FROM produit WHERE id_produit = '$_GET[id_produit]'");//on récupère les informations sur l'article à modifier
         $produit_actuel = $resultat->fetch_assoc();//on rend les informations exploitables afin de les présaisir dans les cases du formulaire
     }
-    $id_produit = (isset($produit_actuel['id_produit'])) ? $produit_actuel['id_produit'] : '';
+    $id_produit = (isset($produit_actuel['id_produit'])) ? $produit_actuel['id_produit'] : ''; //"?" veut dire if et ":" veut dire else
     $reference = (isset($produit_actuel['reference'])) ? $produit_actuel['reference'] : '';
     $categorie = (isset($produit_actuel['categorie'])) ? $produit_actuel['categorie'] : '';
     $titre = (isset($produit_actuel['titre'])) ? $produit_actuel['titre'] : '';
