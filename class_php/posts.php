@@ -82,7 +82,7 @@ $post = new Post("localhost", "root", "", "projetapp", 1);
     				</div>
     			</fieldset>
     		</form>
-    		<form class="form-horizontal" method="POST">
+    		<form class="form-horizontal" id="form_modif_post" method="POST">
     			<fieldset>
     				<!-- Form Name -->
     				<legend>
@@ -90,30 +90,42 @@ $post = new Post("localhost", "root", "", "projetapp", 1);
     				</legend>
     				<!-- Textarea -->
     				<div class="form-group">
+                        <div class="col-md-4">
+                            <select id="id" name="id" class="form-control">
+                                <<option value="null">Sélectionnez un post</option>
+                                <?php
+                                $posts = $mydb->read(array("id", "title"), "posts", array("1"=>"1"));
+                                foreach($posts as $key => $valeur)
+                                echo '<option value="'.$valeur["id"].'">'.$valeur["title"].'</option>';
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
     					<label class="col-md-4 control-label" for="title">Titre</label>
     					<div class="col-md-4">
-    						<textarea class="form-control" id="title" name="title"><?= $post->title ?></textarea>
+    						<textarea class="form-control" id="modif_title" name="title"><?= $post->title ?></textarea>
     					</div>
     				</div>
     				<!-- Text input-->
     				<div class="form-group">
     					<label class="col-md-4 control-label" for="picture">Image</label>
     					<div class="col-md-4">
-    						<input id="picture" name="picture" type="text" placeholder="URL de votre image" class="form-control input-md" required="">
+    						<input id="modif_picture" name="picture" type="text" placeholder="URL de votre image" class="form-control input-md" required="">
     					</div>
     				</div>
     				<!-- Textarea -->
     				<div class="form-group">
     					<label class="col-md-4 control-label" for="description">Description</label>
     					<div class="col-md-4">
-    						<textarea class="form-control" id="description" name="description">default text</textarea>
+    						<textarea class="form-control" id="modif_description" name="description">default text</textarea>
     					</div>
     				</div>
     				<!-- Select Basic -->
     				<div class="form-group">
     					<label class="col-md-4 control-label" for="category_id">Catégorie</label>
     					<div class="col-md-4">
-    						<select id="category_id" name="category_id" class="form-control">
+    						<select id="modif_category_id" name="category_id" class="form-control">
                                 <?php
                                     $category = $mydb->read(array("id", "name"), "category", array("1"=>"1"));
                                     foreach($category as $key => $valeur)
@@ -126,11 +138,39 @@ $post = new Post("localhost", "root", "", "projetapp", 1);
     				<div class="form-group">
     					<label class="col-md-4 control-label" for=""></label>
     					<div class="col-md-4">
-    						<button id="" name="" class="btn btn-primary" type="submit">Envoyer</button>
+    						<button id="submit" name="" class="btn btn-primary" type="submit">Envoyer</button>
+    					</div>
+    				</div>
+                </fieldset>
+            </form>
+                    <form class="form-horizontal" id="form_supprim_post" method="POST">
+            			<fieldset>
+                    <legend>
+                        Supprimer Post
+                    </legend>
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <select id="id_supprim" name="id" class="form-control">
+                                <<option value="null">Sélectionnez un post</option>
+                                <?php
+                                $posts = $mydb->read(array("id", "title"), "posts", array("1"=>"1"));
+                                foreach($posts as $key => $valeur)
+                                echo '<option value="'.$valeur["id"].'">'.$valeur["title"].'</option>';
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+    					<label class="col-md-4 control-label" for=""></label>
+    					<div class="col-md-4">
+    						<button id="submit" name="" class="btn btn-primary" type="submit">Supprimer</button>
     					</div>
     				</div>
     			</fieldset>
     		</form>
         </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="asset/js/script.js"></script>
 	</body>
 </html>

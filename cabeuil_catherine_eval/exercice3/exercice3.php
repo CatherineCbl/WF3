@@ -1,9 +1,9 @@
 <?php
 require_once("inc/init.inc.php");
-if ($_POST)
+$erreur = "";
+if (isset($_POST['ajout']))
 {
     //------------CONTROLES ET ERREURS :
-    $erreur = "";
     //contrôle des tailles
     if(strlen($_POST['title']) < 5)//pour le titre
     {
@@ -39,8 +39,10 @@ if ($_POST)
     if (empty($erreur))
     {
 
-        executeRequete("INSERT INTO movies(title, actors, director, producer, year_of_prod, language, category, storyline, video) VALUES('$_POST[title]', '$_POST[actors]', '$_POST[director]', '$_POST[producer]', '$_POST[year_of_prod]', '$_POST[language]', '$_POST[category]', '$_POST[storyline]', '$_POST[video]')");
-        $contenu .= "<div class='validation'>Nouveau film ajouté</u></a></div>";//message de réussite
+        $resultat = executeRequete("INSERT INTO movies(title, actors, director, producer, year_of_prod, language, category, storyline, video) VALUES('$_POST[title]', '$_POST[actors]', '$_POST[director]', '$_POST[producer]', '$_POST[year_of_prod]', '$_POST[language]', '$_POST[category]', '$_POST[storyline]', '$_POST[video]')");
+        if ($resultat) {
+            $contenu .= "<div class='validation'>Le film $_POST['title'] a bien été ajouté à la base de données</u></a></div>";//message de réussite        
+        }
     }
     $contenu .= $erreur;
 }
@@ -66,37 +68,11 @@ echo $contenu;
     <label for="year_of_prod">Année de production</label><br>
     <select id="year_of_prod" name="year_of_prod">
         <optgroup label="year_of_prod">
-            <option value="1987">1987</option>
-            <option value="1988">1988</option>
-            <option value="1989">1989</option>
-            <option value="1990">1990</option>
-            <option value="1991">1991</option>
-            <option value="1992">1992</option>
-            <option value="1993">1993</option>
-            <option value="1994">1994</option>
-            <option value="1995">1995</option>
-            <option value="1996">1996</option>
-            <option value="1997">1997</option>
-            <option value="1998">1998</option>
-            <option value="1999">1999</option>
-            <option value="2000">2000</option>
-            <option value="2001">2001</option>
-            <option value="2002">2002</option>
-            <option value="2003">2003</option>
-            <option value="2004">2004</option>
-            <option value="2005">2005</option>
-            <option value="2006">2006</option>
-            <option value="2007">2007</option>
-            <option value="2008">2008</option>
-            <option value="2009">2009</option>
-            <option value="2010">2010</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
+            <?php
+                for ($i=2017; $i >= 1987; $i--) {
+                    echo '<option>' .$i. '</option>';
+                }
+             ?>
         </optgroup>
     </select><br /><br />
 
@@ -113,13 +89,11 @@ echo $contenu;
     <label for="category">Catégorie</label><br>
     <select id="category" name="category">
         <optgroup label="category">
-            <option value="drame">Drame</option>
-            <option value="romance">Romance</option>
-            <option value="action">Action</option>
-            <option value="thriller">Thriller</option>
-            <option value="comedie">Comédie</option>
-            <option value="horreur">Horreur</option>
-            <option value="fantastique">Fantastique</option>
+            <?php
+            foreach ($_POST as $indice => $value) {
+                echo $indice .' : '.$value . "<br>";
+            }
+             ?>
         </optgroup>
     </select><br /><br />
 
