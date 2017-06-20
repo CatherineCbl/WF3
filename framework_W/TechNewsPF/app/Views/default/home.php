@@ -1,4 +1,6 @@
-<?php $this->layout('layout', ['title' => 'Accueil']) ?>
+<?php
+use Model\Shortcut;
+$this->layout('layout', ['title' => 'Tech News - Accueil','current'=>'Accueil']) ?>
 
 <!-- Pour inclure du CSS -->
 <?php $this->start('css'); ?>
@@ -20,25 +22,29 @@
 		<div>
 			<article class="spotlight-item">
 				<div class="spotlight-img">
-					<img alt="" src='<?= $this->assetUrl("images/product/". $article->FEATUREDIMAGEARTICLE); ?>'>
-					<a href="#" class="cate-tag"><?= $article->LIBELLECATEGORIE?></a>
+					<img alt="<?= $article->TITREARTICLE;?>" src='<?= $this->assetUrl("images/product/". $article->FEATUREDIMAGEARTICLE); ?>'>
+					<a href="<?= $this->url('default_categorie', ['categorie'=> strtolower($article->LIBELLECATEGORIE)])?>" class="cate-tag"><?= $article->LIBELLECATEGORIE;?></a>
 				</div>
 				<div class="spotlight-item-caption">
 					<h2 class="font-heading">
-						<a href="<?= $this->assetUrl('article.html');?>">
-							<?= $article->TITREARTICLE?>
+						<a href="<?= $this->url('default_article', [
+							'categorie' => strtolower($article->LIBELLECATEGORIE),
+							'id'        => $article->IDARTICLE,
+							'slug'      => Shortcut::generateSlug($article->TITREARTICLE)
+							])?>">
+							<?= $article->TITREARTICLE;?>
 						</a>
 					</h2>
 					<div class="meta-post">
 						<a href="#">
-								<?= $article->PRENOMAUTEUR?> <?= $article->NOMAUTEUR?>
+								<?= $article->PRENOMAUTEUR?> <?= $article->NOMAUTEUR;?>
 						</a>
 						<em></em>
 						<span>
-							<?= $article->DATECREATIONARTICLE?>
+							<?= $article->DATECREATIONARTICLE;?>
 						</span>
 					</div>
-					<p><?= $article->CONTENUARTICLE?> </p>
+					<p><?= Shortcut::getAccroche($article->CONTENUARTICLE);?> </p>
 				</div>
 			</article>
 		</div>
@@ -54,19 +60,27 @@
 			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div class="spotlight-item-thumb">
 					<div class="spotlight-item-thumb-img">
-						<a href="#">
-							<img alt="" src='<?= $this->assetUrl("images/product/". $article->FEATUREDIMAGEARTICLE); ?>'>
+						<a href="<?= $this->url('default_article', [
+							'categorie' => strtolower($article->LIBELLECATEGORIE),
+							'id'        => $article->IDARTICLE,
+							'slug'      => Shortcut::generateSlug($article->TITREARTICLE)
+							])?>">
+							<img alt="<?= $article->TITREARTICLE;?>" src='<?= $this->assetUrl("images/product/". $article->FEATUREDIMAGEARTICLE); ?>'>
 						</a>
-						<a href="#" class="cate-tag">business</a>
+						<a href="#" class="cate-tag"><?= $article->LIBELLECATEGORIE;?></a>
 					</div>
-					<h3><a href="#"><?= $article->TITREARTICLE?></a></h3>
+					<h3><a href="<?= $this->url('default_article', [
+						'categorie' => strtolower($article->LIBELLECATEGORIE),
+						'id'        => $article->IDARTICLE,
+						'slug'      => Shortcut::generateSlug($article->TITREARTICLE)
+						])?>"><?= $article->TITREARTICLE;?></a></h3>
 					<div class="meta-post">
 						<a href="#">
-							<?= $article->PRENOMAUTEUR?> <?= $article->NOMAUTEUR?>
+							<?= $article->PRENOMAUTEUR;?> <?= $article->NOMAUTEUR;?>
 						</a>
 						<em></em>
 						<span>
-							<?= $article->DATECREATIONARTICLE?>
+							<?= $article->DATECREATIONARTICLE;?>
 						</span>
 					</div>
 				</div>

@@ -7,7 +7,7 @@ class Categorie{
             $LIBELLECATEGORIE,
             $ROUTECATEGORIE;
 
-    public function __construct($IDCATEGORIE, $LIBELLECATEGORIE, $ROUTECATEGORIE){
+    public function __construct($IDCATEGORIE, $LIBELLECATEGORIE, $ROUTECATEGORIE=null){
         $this->IDCATEGORIE      = $IDCATEGORIE;
         $this->LIBELLECATEGORIE = $LIBELLECATEGORIE;
         $this->ROUTECATEGORIE   = $ROUTECATEGORIE;

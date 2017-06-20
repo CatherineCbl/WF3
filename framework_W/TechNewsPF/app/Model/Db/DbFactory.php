@@ -18,5 +18,12 @@ class DbFactory{
         ORM::configure('mysql:host='.$app->getConfig('db_host').';dbname='.$app->getConfig('db_name'));
         ORM::configure('username', $app->getConfig('db_user'));
         ORM::configure('password', $app->getConfig('db_pass'));
+
+        #Configuration de la clé primaire de chaque table
+        ORM::configure('id_column_overrides', array(
+            'article'       => 'IDARTICLE',
+            'view_articles' => 'IDARTICLE',
+            'categorie'     => 'IDCATEGORIE'
+        ));
     }
 }

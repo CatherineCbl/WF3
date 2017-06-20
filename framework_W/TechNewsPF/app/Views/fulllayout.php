@@ -128,8 +128,6 @@
 			<!-- CONTENU DU SITE -->
 			<?= $this->section('contenu'); ?>
 
-			<!-- SIDEBAR -->
-            <?php include_once 'sidebar.inc.php'; ?>
 
 
 		</div> <!-- ./page -->
