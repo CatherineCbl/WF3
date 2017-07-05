@@ -16,7 +16,7 @@
     $tags = ORM::for_table('tags')->find_result_set();
 
     #Récupération des 5 derniers articles du plus recent au plus ancien
-    $cinqDerniersArticles = ORM::for_table('view_articles')->order_by_asc('DATECREATIONARTICLE')->limit(5)->find_result_set();
+    $cinqDerniersArticles = ORM::for_table('view_articles')->order_by_desc('DATECREATIONARTICLE')->limit(5)->find_result_set();
     //debug($cinqDerniersArticles);
 
     #Récupération des articles en avant
@@ -226,6 +226,98 @@
 	<script src=<?= $this->assetUrl('js/bootstrap.js');?>></script>
 	<script src=<?= $this->assetUrl('js/owl.carousel.min.js');?>></script>
 	<script src=<?= $this->assetUrl('js/main.js');?>></script>
+    <script>
+        //-Initialisation de jQuery
+        $(function() {
+            //--jQuery pret à travailler
+            console.log('jQuery is ready!');
+
+            /**
+            * Validate email function with regualr expression
+            *
+            * If email isn't valid then return false
+            *
+            * @param email
+            * @return Boolean
+            */
+            function validateEmail(email){
+                var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+                var valid = emailReg.test(email);
+
+                if(!valid) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            //-- 1.Ecoute le formulaire Newsletter pour savoir a quel moment il est soumis
+            $('#newsletterForm').on('submit', function(e) {
+                //-- Permet de stopper la redirection du submit
+                e.preventDefault();
+
+                //-- 2.Récupération des champs à vérifier
+                var prenom  = $('#prenom');
+                var email   = $('#email');
+                var erreurs = [];
+
+                //-- 2.b. Réinitialisation des erreurs
+                $('#newsletterForm .alert').remove();
+
+                //-- 3.Vérifier que le prénom a bien été saisi
+                if(prenom.val().length == 0) {
+                    erreurs.push('Vous devez saisir votre Prénom');
+                }
+
+                //-- 4.Vérifier si l'adresse email est correcte
+                if (!validateEmail(email.val())) {
+                    erreurs.push('Vérifiez votre email');
+                }
+                //-- Affichage dans la console
+                //console.log(erreurs);
+
+                if (erreurs.length == 0) {
+                    // -- Pas d'erreur, je peux persister
+                    $.ajax({
+                        url:"<?= $this->url('default_newsletteradd'); ?>",
+                        type: "POST",
+                        data: {
+                            EMAILNEWSLETTER    :  email.val(),
+                            CONTACTNEWSLETTER  :  prenom.val()
+                        }
+                    }).done(function(data) {
+                        if(data.response) {
+                            $('#newsletterForm').replaceWith($(`
+                                <div class="alert alert-success">
+                                    <strong>
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                        <br>Merci !
+                                    </strong>
+                                    <br>Votre inscription est validée.
+                                </div>
+                            `));
+                        } else {
+                            $(`
+                                <div class="alert alert-warning">
+                                    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Attention !</strong><br>
+                                        Vous êtes déjà inscrit.
+                                </div>
+                            `).prependTo($('#newsletterForm')).delay(3000).fadeOut();
+                            $('#newsletterForm').get(0).reset();
+                        }
+                    });
+                } else {
+                    //-- Il y a des erreurs dans mon tableau
+                    $(`
+                        <div class="alert alert-warning">
+                            <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Attention !</strong><br>
+                                ${ erreurs }
+                        </div>
+                    `).prependTo($('#newsletterForm'));
+                }
+            })
+        })
+    </script>
 	<?= $this->section('script');?>
 
 </body>

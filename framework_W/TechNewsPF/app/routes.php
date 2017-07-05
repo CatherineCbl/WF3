@@ -12,4 +12,7 @@
 
 		#route pour ajouter un article
 		['GET|POST', '/article/ajouter-un-article.html', 'Article#add', 'article_add'],
+
+		#Ajouter une adresse Email dans la newsletter
+		['POST', '/newsletter/add', 'Default#newsletteradd', 'default_newsletteradd'],
 	);

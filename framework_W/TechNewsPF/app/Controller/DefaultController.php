@@ -78,4 +78,38 @@ class DefaultController extends Controller
 		$this->show('default/article',['article' => $articles, 'suggestions' => $suggestions, 'categorie' => $categorie]);
 	}
 
+	public function newsletteradd() {
+		if (!empty($_POST)) :
+
+			# Initialisation à ma BDD
+			DbFactory::start();
+
+			#Vérification si l'adresse email esixte en BDD
+			$isMailInDb = \ORM::for_table('newsletter')
+			                ->where('EMAILNEWSLETTER', $_POST['EMAILNEWSLETTER'])
+							->count();
+
+			if(!$isMailInDb) :
+				#Elle n'existe pas, donc on l'ajooute à notre BDD
+				$news = \ORM::for_table('newsletter')->create();
+				$news->EMAILNEWSLETTER   =  $_POST['EMAILNEWSLETTER'];
+				$news->CONTACTNEWSLETTER =  $_POST['CONTACTNEWSLETTER'];
+				$news->save();
+
+				#on renvoi une reponse : true
+				$result = ['response' => true];
+
+			else :
+				#L'adresse Email existe déjà, on renvoie false
+				$result = ['response' => false];
+
+			endif;
+
+			$this->showJson($result);
+
+		endif;
+
+
+	}
+
 }

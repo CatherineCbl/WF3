@@ -46,18 +46,18 @@ $this->layout('fulllayout', [
                         </select>
                     </div>
                 </div>
+                <!-- featured image-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Featured Image <em>(Image à la une)</em></label>
+                    <div class="col-md-9">
+                        <input type="file" name="FEATUREDIMAGEARTICLE" class="dropify" data-max-file-size="3M">
+                    </div>
+                </div>
                 <!-- Contenu-->
                 <div class="form-group">
                     <label class="col-md-3 control-label">Description</label>
                     <div class="col-md-9">
                         <textarea name="CONTENUARTICLE" placeholder="Contenu de l'article" class="form-control"></textarea>
-                    </div>
-                </div>
-                <!-- featured image-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Featured Image <em>(Image à la une)</em></label>
-                    <div class="col-md-9">
-                        <input type="file" name="FEATUREDIMAGE" class="dropify" data-max-file-size="3M">
                     </div>
                 </div>
                 <!-- option-->

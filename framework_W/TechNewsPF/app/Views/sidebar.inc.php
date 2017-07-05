@@ -50,8 +50,11 @@ use Model\Shortcut;?>
 	<div class="subcribe-box">
 		<h3>NEWSLETTER</h3>
 		<p>Inscrivez-vous pour recevoir nos dernières publications.</p>
-		<input type="text" placeholder="Votre Email..." />
-		<button class="my-btn">Je m'inscris</button>
+		<form id="newsletterForm" novalidate>
+			<input id="email" type="email" placeholder="Votre Email..." required>
+			<input id="prenom" required style="margin-top:0;" type="text" placeholder="Votre Prénom...">
+			<button class="my-btn">Je m'inscris</button>
+		</form>
 	</div>
 	<!-- connect us-->
 	<div class="connect-us">

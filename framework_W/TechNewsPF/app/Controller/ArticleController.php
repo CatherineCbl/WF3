@@ -26,7 +26,7 @@ class ArticleController extends Controller{
               $handle->file_new_name_body   = Shortcut::generateSlug($TITREARTICLE);
               $handle->image_resize         = true;
               $handle->image_x              = 1000;
-              $handle->image_Y              = 550;
+              $handle->image_y              = 550;
               $handle->image_ratio_crop     = true;
               $handle->process('assets/images/product/');
               if ($handle->processed) {
@@ -44,12 +44,13 @@ class ArticleController extends Controller{
             $categorie = \ORM::for_table('categorie')->find_one($IDCATEGORIE);
             #On associe les colonnes de notre BDD avec les valeurs du Formulaire
             #Colonne mySQL                #Valeurs formulaire
-            $article->IDAUTEUR         =  $IDAUTEUR ;
-            $article->IDCATEGORIE      =  $IDCATEGORIE;
-            $article->TITREARTICLE     =  $TITREARTICLE;
-            $article->CONTENUARTICLE   =  $CONTENUARTICLE;
-            $article->SPECIALARTICLE   =  $SPECIALARTICLE;
-            $article->SPOTLIGHTARTICLE =  $SPOTLIGHTARTICLE;
+            $article->IDAUTEUR             =  $IDAUTEUR ;
+            $article->IDCATEGORIE          =  $IDCATEGORIE;
+            $article->TITREARTICLE         =  $TITREARTICLE;
+            $article->CONTENUARTICLE       =  $CONTENUARTICLE;
+            $article->SPECIALARTICLE       =  $SPECIALARTICLE;
+            $article->SPOTLIGHTARTICLE     =  $SPOTLIGHTARTICLE;
+            $article->FEATUREDIMAGEARTICLE =  $FEATUREDIMAGEARTICLE;
 
             #Insertion
             $article->save();
