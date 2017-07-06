@@ -1,31 +1,10 @@
 <?php
 require '../../connexion/connexion.php';
 
-//gestion des contenus
-//insertion
-if(isset($_POST['competence'])){
-    if ($_POST['competence']!='') {
-        $competence = addslashes($_POST['competence']);
-        $pdoCV->exec(" INSERT INTO t_competences VALUES(NULL, '$competence', '1')");//mettre $id_utilisateur quand on l'aura en variable de session
-        header("location:competences.php");
-        exit();
-    }
-}
-
-//suppression d'une compétence
-if (isset($_GET['id_competence'])) {
-    $efface = $_GET['id_competence'];
-    $sql = "DELETE FROM t_competences WHERE id_competence = '$efface'";
-    $pdoCV -> query($sql);//ou on peut avec exec
-    header("location:competences.php");
-}
 
 
-// //modification d'une compétence
-// //Je recupere la compétence
-// $id_competence = $_GET['id_competence']; //par l'id et $_GET
-// $sql = $pdoCV->query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'");//la requête égale à l'id
-// $ligne_competence = $sql->fetch();
+
+
 
 ?>
 
@@ -425,21 +404,21 @@ if (isset($_GET['id_competence'])) {
 
                     ?>
 
-                    <h1 class="page-header">Compétences</h1>
+                    <h1 class="page-header">Loisirs</h1>
                     <?php
-                    $sql = $pdoCV->query("SELECT * FROM t_competences WHERE utilisateur_id='1' ");
-                    $ligne_competence = $sql->fetchAll();
-                    $nb_competences = count($ligne_competence);
+                    $sql = $pdoCV->query("SELECT * FROM t_loisirs WHERE utilisateur_id='1' ");
+                    $ligne_loisir = $sql->fetchAll();
+                    $nb_loisirs = count($ligne_loisir);
 
                     ?>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <em><?php if ($nb_competences <= 1): ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_competences. " compétence."?>
+                                    <em><?php if ($nb_loisirs <= 1): ?>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_loisirs. " loisir."?>
                                     <?php else: ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_competences. " compétences."?>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_loisirs. " loisirs."?>
                                     <?php endif; ?></em>
                                 </div>
                                 <!-- /.panel-heading -->
@@ -448,15 +427,15 @@ if (isset($_GET['id_competence'])) {
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="col">Compétences</th>
+                                                    <th scope="col">Loisirs</th>
                                                     <th scope="col">Modifier</th>
                                                     <th scope="col">Supprimer</th>
                                                 </tr>
-                                                <?php foreach ($ligne_competence as $ligne_competences) : ?>
+                                                <?php foreach ($ligne_loisir as $ligne_loisirs) : ?>
                                                 <tr>
-                                                    <td><?= $ligne_competences['competence'];?></td>
+                                                    <td><?= $ligne_loisirs['loisir'];?></td>
                                                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                                    <td><a href="competences.php?id_competence=<?php echo $ligne_competences['id_competence']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td><a href="loisirs.php?id_loisir=<?php echo $ligne_loisirs['id_loisir']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -467,12 +446,12 @@ if (isset($_GET['id_competence'])) {
                                 <!-- /.panel-body -->
                             </div>
                             <!-- /.panel -->
-                            <form class="" action="competences.php" method="post">
+                            <form class="" action="loisirs.php" method="post">
                                 <div class="form-group">
-                                    <label for="competence">Ajouter une compétence</label>
-                                    <input class="form-control" placeholder="Ex: SQL" name="competence" required>
+                                    <label for="loisir">Ajouter un loisir</label>
+                                    <input class="form-control" placeholder="Ex: SQL" name="loisir" id="loisir" required>
                                 </div>
-                                <button type="submit" class="btn btn-default">Ajouter</button>
+                                <button type="submit" class="btn btn-default" id="button_loisir">Ajouter</button>
                             </form>
                             <?php
                             $heure = date("H:i");
@@ -491,7 +470,10 @@ if (isset($_GET['id_competence'])) {
 
 
             </div>
-            <!-- /.row -->
+
+        </div>
+
+
 
 
 

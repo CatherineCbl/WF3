@@ -309,6 +309,9 @@
                             <a href="competences.php"><i class="fa fa-edit fa-fw"></i> Compétences</a>
                         </li>
                         <li>
+                            <a href="loisirs.php"><i class="fa fa-edit fa-fw"></i> Loisirs</a>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -392,12 +395,6 @@
                     <h1><strong><?= $ligne_titre['titre_cv']?></strong></h1>
                     <h2><?= $ligne_titre['accroche']?></h2>
                     <h3 class="page-header"><?= $ligne_utilisateur['pseudo'] ?></h3>
-                    <?php
-                        $heure = date("H:i");
-                        setlocale(LC_TIME,"fr_FR.UTF-8","French_France.1252");
-                        echo strftime("%A %d %B %Y");
-                        echo "<br>".$heure;
-                    ?>
 
                 </div>
                 <!-- /.col-lg-12 -->
@@ -934,6 +931,12 @@
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
+            <?php
+            $heure = date("H:i");
+            setlocale(LC_TIME,"fr_FR.UTF-8","French_France.1252");
+            echo strftime("%A %d %B %Y");
+            echo "<br>".$heure;
+            ?>
         </div>
         <!-- /#page-wrapper -->
 
@@ -956,6 +959,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    <!-- JavaScript Personnel -->
+    <script src="../js/monscript.js"></script>
 
 </body>
 
