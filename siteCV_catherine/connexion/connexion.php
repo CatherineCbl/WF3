@@ -1,9 +1,9 @@
 <?php
 
 $hote='localhost';// le chemin vers le serveur
-$bdd='sitecv_catherine'; // le nom de la base de données
+$bdd='sites_catherine'; // le nom de la base de données
 $utilisateur='root';//le nom d'utilisateur pour se connecter
-$passe=''; // mot de passe d'utilisateur
+$passe='root'; // mot de passe d'utilisateur
 //$passe='root'; //mot de passe mac en local
 
 $pdoCV = new PDO('mysql:host='.$hote.';dbname='.$bdd, $utilisateur,$passe);

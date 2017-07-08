@@ -2,7 +2,7 @@ $(function() {
     $(document).on("click", "#button_loisir", function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/github/WF3/siteCV_catherine/admin/ajout.php',
+            url: '/WF3/siteCV_catherine/admin/ajout.php',
             type: 'POST',
             data: {
                 loisir : $("#loisir").val()
@@ -10,7 +10,7 @@ $(function() {
             })
             .done(function(data){
                 data = JSON.parse(data);
-                console.log(data.loisir);
+                //console.log(data.loisir);
                 $('tr').last().after(`<tr>
                     <td>`+data.loisir+`</td>
                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
@@ -18,14 +18,23 @@ $(function() {
                 </tr>`)
         })
     });
-    $(document).on("click", $this".glyphicon-trash", function(e) {
+    $(document).on("click", ".glyphicon-trash", function(e) {
         e.preventDefault();
-        $.ajax({
-            url: '/github/WF3/siteCV_catherine/admin/suppression.php',
-            type: 'POST',
-            data: {
-                loisir : $("#loisir").val()
-            }
-        })
+        if (confirm('Voulez-vous vraiment supprimer ce loisir?')) {
+          $.ajax({
+              url: '/WF3/siteCV_catherine/admin/suppression.php',
+              type: 'POST',
+              data: {
+                  loisir : $("#loisir").val()
+              }
+          })
+          .done(function(data){
+            //data = JSON.parse(data);
+            $(this).parent().parent().parent().fadeOut('slow', function() {
+              $(this).remove();
+            })
+          })
+        }
+
     })
 });
