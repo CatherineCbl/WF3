@@ -32,7 +32,7 @@ $(function() {
         console.log(idSelect);
         $.ajax({
             url: "api.php",
-            method: "POST",
+            method: "GET",
             data: {
                 title: $("#modif_title").val(),
                 picture: $("#modif_picture").val(),

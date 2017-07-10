@@ -2,7 +2,7 @@ $(function() {
     $(document).on("click", "#button_loisir", function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/WF3/siteCV_catherine/admin/ajout.php',
+            url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_loisir.php',
             type: 'POST',
             data: {
                 loisir : $("#loisir").val()
@@ -18,21 +18,27 @@ $(function() {
                 </tr>`)
         })
     });
-    $(document).on("click", ".glyphicon-trash", function(e) {
+    $('td>a').on("click", function(e) {
         e.preventDefault();
+    });
+
+    $(document).on("click", ".glyphicon-trash", function(e) {
+        let id_tr = $(this).parent().parent().parent();
+        console.log(id_tr);
+
         if (confirm('Voulez-vous vraiment supprimer ce loisir?')) {
           $.ajax({
-              url: '/WF3/siteCV_catherine/admin/suppression.php',
+              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_loisir.php',
               type: 'POST',
               data: {
-                  loisir : $("#loisir").val()
+                  loisir : $(this).parent().attr('href')
               }
           })
           .done(function(data){
-            //data = JSON.parse(data);
-            $(this).parent().parent().parent().fadeOut('slow', function() {
-              $(this).remove();
-            })
+
+            $(id_tr).fadeOut('slow',function(e) {
+                $(id_tr).remove();
+            });
           })
         }
 
