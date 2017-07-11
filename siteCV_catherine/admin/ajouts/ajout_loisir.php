@@ -1,5 +1,6 @@
 <?php
  require '../../connexion/connexion.php';
+ require '../inc/nav.inc.php';
 //insertion
 
     if ($_POST) {
@@ -9,4 +10,5 @@
         $data = $pdoCV->query("SELECT * FROM t_loisirs WHERE id_loisir='".$lastinsert."' ");
         $data = $data->fetch();
         echo json_encode($data);
+        
     }

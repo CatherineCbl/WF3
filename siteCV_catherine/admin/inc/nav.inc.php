@@ -124,6 +124,15 @@
                             <a href="competences.php"><i class="fa fa-edit fa-fw"></i> Compétences</a>
                         </li>
                         <li>
+                            <a href="experiences.php"><i class="fa fa-edit fa-fw"></i> Expériences</a>
+                        </li>
+                        <li>
+                            <a href="formations.php"><i class="fa fa-edit fa-fw"></i> Formations</a>
+                        </li>
+                        <li>
+                            <a href="realisations.php"><i class="fa fa-edit fa-fw"></i> Réalisations</a>
+                        </li>
+                        <li>
                             <a href="loisirs.php"><i class="fa fa-edit fa-fw"></i> Loisirs</a>
                         </li>
 

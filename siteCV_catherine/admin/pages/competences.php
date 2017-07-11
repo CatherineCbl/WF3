@@ -4,13 +4,7 @@ require '../../connexion/connexion.php';
 //gestion des contenus
 
 
-//suppression d'une compétence
-if (isset($_GET['id_competence'])) {
-    $efface = $_GET['id_competence'];
-    $sql = "DELETE FROM t_competences WHERE id_competence = '$efface'";
-    $pdoCV -> query($sql);//ou on peut avec exec
-    header("location:competences.php");
-}
+
 
 
 // //modification d'une compétence
