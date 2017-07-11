@@ -1,6 +1,5 @@
 <?php
  require '../../connexion/connexion.php';
- require '../inc/nav.inc.php';
 //insertion
 
 

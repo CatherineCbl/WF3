@@ -81,7 +81,7 @@ include '../inc/nav.inc.php';
                                     <input class="form-control" placeholder="Ex: Licence informatique" name="titre_f" id="titre_f" required>
                                     <input class="form-control" placeholder="Ecole" name="sous_titre_f" id="sous_titre_f" required>
                                     <textarea class="form-control" name="description_f" id="description_f" required></textarea>
-                                    <input class="form-control" placeholder="01/01/2017 à 01/02/2017" name="dates_f" id="dates_f" required>
+                                    <input  type="date" class="form-control" name="dates_f" id="dates_f" required>
                                 </div>
                                 <button type="submit" class="btn btn-default" id="button_formation">Ajouter</button>
                                 <br>

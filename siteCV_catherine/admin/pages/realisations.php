@@ -78,7 +78,7 @@ include '../inc/nav.inc.php';
                                     <label for="realisation">Ajouter une réalisation</label>
                                     <input class="form-control" placeholder="Exemple de site" name="titre_r" id="titre_r" required>
                                     <textarea class="form-control" name="description_r" id="description_r" required></textarea>
-                                    <input class="form-control" placeholder="01/01/2017 à 01/02/2017" name="dates_r" id="dates_r" required>
+                                    <input class="form-control" type="date" name="dates_r" id="dates_r" required>
                                 </div>
                                 <button type="submit" class="btn btn-default" id="button_realisation">Ajouter</button>
                                 <br>
