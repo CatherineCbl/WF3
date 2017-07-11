@@ -39,9 +39,9 @@ include '../inc/nav.inc.php';
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <em><?php if ($nb_experiences <= 1): ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_experiences. " expérience."?>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré <span class='nb_experiences'> " .$nb_experiences. "</span> expérience."?>
                                     <?php else: ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_experiences. " expériences."?>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré <span class='nb_experiences'>" .$nb_experiences. "</span> expériences."?>
                                     <?php endif; ?></em>
                                 </div>
                                 <!-- /.panel-heading -->

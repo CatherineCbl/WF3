@@ -19,7 +19,7 @@ $(function() {
         })
     });
 
-    $('td>a').on("click", function(e) {
+    $('#suppression').on("click", function(e) {
         e.preventDefault();
     });
 
@@ -36,7 +36,7 @@ $(function() {
               }
           })
           .done(function(data){
-            
+
             $(id_tr).fadeOut('slow',function(e) {
                 $(id_tr).remove();
             });

@@ -1,18 +1,25 @@
 $(function() {
     $(document).on("click", "#button_experience", function(e) {
         e.preventDefault();
+
         $.ajax({
             url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_experience.php',
             type: 'POST',
             data: {
-                experience : $("#experience").val()
+                titre_e : $("#titre_e").val(),
+                sous_titre_e : $("#sous_titre_e").val(),
+                description_e : $("#description_e").val(),
+                dates_e : $("#dates_e").val()
             }
             })
-            .done(function(experience){
-                data = JSON.parse(experience);
+            .done(function(data){
+                data = JSON.parse(data);
                 //console.log(data.experience);
                 $('tr').last().after(`<tr>
-                    <td>`+data.experience+`</td>
+                    <td>`+data.titre_e+`</td>
+                    <td>`+data.sous_titre_e+`</td>
+                    <td>`+data.description_e+`</td>
+                    <td>`+data.dates_e+`</td>
                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td><a href="experiences.php?id_experience=`+data.id_experience+`"> <span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>`)
@@ -39,6 +46,7 @@ $(function() {
 
             $(id_tr).fadeOut('slow',function(e) {
                 $(id_tr).remove();
+                $(".nb_experiences")
             });
           })
         }

@@ -1,17 +1,19 @@
-<?php require '../../connexion/connexion.php' ?>
+<?php require '../../connexion/connexion.php';
+ ?>
 <?php
 // Gestion des contenus, mise à jour d'une compétence
 if(isset($_POST['competence'])){
 	$competence = addslashes($_POST['competence']);
 	$id_competence = $_POST['id_competence'];
 	$pdoCV->exec(" UPDATE t_competences SET competence='$competence' WHERE id_competence='$id_competence' ");
-	header('location: index.php');
+	header('location: ../pages/competences.php');
 	exit();
 }
 // Je recupere la competence
 $id_competence = $_GET['id_competence']; // par l'id et $_GET
 $sql = $pdoCV->query(" SELECT * FROM t_competences WHERE id_competence = '$id_competence' "); // la requête égale à l'id
-$ligne_competence = $sql->fetch(); //
+$ligne_competences = $sql->fetch(); //
+require '../inc/nav.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -82,7 +84,7 @@ $ligne_competence = $sql->fetch(); //
 			<div class="row">
 				<div class="col-lg-12">
 					<section id="intro" class="intro-section">
-						<form class="form-horizontal" method="post" action="modif_competence.php">
+						<form class="form-horizontal" method="post" action="modif_competences.php">
 							<fieldset>
 
 								<!-- Form Name -->
@@ -92,8 +94,8 @@ $ligne_competence = $sql->fetch(); //
 								<div class="form-group">
 									<label for="competence" class="col-md-4 control-label" >Compétence</label>
 									<div class="col-md-4">
-										<input name="competence" type="text" class="form-control input-md" value="<?= $ligne_competence['competence']; ?>">
-										<input name="id_competence" hidden value="<?= $ligne_competence['id_competence']; ?>">
+										<input name="competence" type="text" class="form-control input-md" value="<?= $ligne_competences['competence']; ?>">
+										<input name="id_competence" hidden value="<?= $ligne_competences['competence']; ?>">
 									</div>
 								</div>
 
