@@ -36,6 +36,12 @@ include '../inc/nav.inc.php';
                     ?>
                     <div class="row">
                         <div class="col-lg-12">
+                            <div class="alert alert-success hide" role="alert" id="success_add">
+                                Expérience ajoutée avec <strong>succès!</strong>
+                            </div>
+                            <div class="alert alert-success hide" role="alert" id="success_remove">
+                                Expérience supprimée avec <strong>succès!</strong>
+                            </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <em><?php if ($nb_experiences <= 1): ?>
@@ -109,7 +115,7 @@ include '../inc/nav.inc.php';
 
 
 
-    <!-- ckeditor -->
+    <!-- ckeditor-->
     <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
     <script>
     CKEDITOR.replace( 'description_e' );

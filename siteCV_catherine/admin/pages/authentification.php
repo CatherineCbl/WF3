@@ -1,7 +1,8 @@
-<?php require '../../connexion/connexion.php';?>
+<?php
+require '../../connexion/connexion.php';?>
 <?php
 
-	session_start();// à mettre dans toutes las pages de l'admin ; SESSION et Authentification
+	
 
 	$msg_auth_err=''; // on initialisz la variable en cas d'erreur
 
@@ -18,7 +19,6 @@
 			}
 			else{
 				$ligne_utilisateur= $sql->fetch();
-
 				$_SESSION['connexion']='connecté';
 				$_SESSION['id_utilisateur']=$ligne_utilisateur['id_utilisateur'];
 				$_SESSION['prenom']=$ligne_utilisateur['prenom'];

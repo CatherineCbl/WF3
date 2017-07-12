@@ -25,6 +25,12 @@ include '../inc/nav.inc.php';
                     ?>
                     <div class="row">
                         <div class="col-lg-6">
+                            <div class="alert alert-success hide" role="alert" id="success_add">
+                                Loisir ajouté avec <strong>succès!</strong>
+                            </div>
+                            <div class="alert alert-success hide" role="alert" id="success_remove">
+                                Loisir supprimé avec <strong>succès!</strong>
+                            </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <em><?php if ($nb_loisirs <= 1): ?>

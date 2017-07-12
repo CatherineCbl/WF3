@@ -36,6 +36,12 @@ include '../inc/nav.inc.php';
                     ?>
                     <div class="row">
                         <div class="col-lg-12">
+                            <div class="alert alert-success hide" role="alert" id="success_add">
+                                Réalisation ajoutée avec <strong>succès!</strong>
+                            </div>
+                            <div class="alert alert-success hide" role="alert" id="success_remove">
+                                Réalisation supprimée avec <strong>succès!</strong>
+                            </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <em><?php if ($nb_realisations <= 1): ?>

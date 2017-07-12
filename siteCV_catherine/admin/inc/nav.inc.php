@@ -1,3 +1,26 @@
+<?php
+// session_start(); // a mettre dans toutes les pages de l'admin; SESSION et authentification
+if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {
+    $id_utilisateur=$_SESSION['id_utilisateur'];
+    $prenom=$_SESSION['prenom'];
+    $nom=$_SESSION['nom'];
+}
+else {//l'utilisateur n'est pas connecté
+    header('location:authentification.php');
+}
+//pour se deconnecter
+if (isset($_GET['quitter'])) {//on vide les variables de session
+    $_SESSION['connexion']='';
+    $_SESSION['id_utilisateur']='';
+    $_SESSION['prenom']='';
+    $_SESSION['nom']='';
+    unset($_SESSION['connexion']);
+    session_destroy();
+    header('location:../pages/authentification.php');
+}
+$sql = $pdoCV->query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='$id_utilisateur' ");
+$ligne_utilisateur = $sql->fetch();//va chercher sur une ligne!
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

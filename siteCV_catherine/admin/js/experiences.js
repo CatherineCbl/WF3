@@ -1,4 +1,5 @@
 $(function() {
+
     $(document).on("click", "#button_experience", function(e) {
         e.preventDefault();
 
@@ -22,7 +23,15 @@ $(function() {
                     <td>`+data.dates_e+`</td>
                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td><a href="experiences.php?id_experience=`+data.id_experience+`"> <span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>`)
+                </tr>`);
+
+
+                $('#success_add').removeClass('hide');
+                setTimeout(function(){ $('#success_add').addClass('hide'); },2000);
+
+            ;
+
+
         })
     });
 
@@ -46,10 +55,13 @@ $(function() {
 
             $(id_tr).fadeOut('slow',function(e) {
                 $(id_tr).remove();
-                $(".nb_experiences")
             });
+            $('#success_remove').removeClass('hide');
+            setTimeout(function(){ $('#success_remove').addClass('hide'); },2000);
+
           })
         }
 
     })
+    $(".nb_experiences")
 });

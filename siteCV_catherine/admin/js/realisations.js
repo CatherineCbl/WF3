@@ -16,6 +16,8 @@ $(function() {
                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td><a href="realisations.php?id_realisation=`+data.id_realisation+`"> <span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>`)
+                $('#success_add').removeClass('hide');
+                setTimeout(function(){ $('#success_add').addClass('hide'); },2000);
         })
     });
 
@@ -40,6 +42,9 @@ $(function() {
             $(id_tr).fadeOut('slow',function(e) {
                 $(id_tr).remove();
             });
+            $('#success_remove').removeClass('hide');
+            setTimeout(function(){ $('#success_remove').addClass('hide'); },2000);
+
           })
         }
 
