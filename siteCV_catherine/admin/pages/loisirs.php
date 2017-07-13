@@ -52,8 +52,8 @@ include '../inc/nav.inc.php';
                                                 <?php foreach ($ligne_loisir as $ligne_loisirs) : ?>
                                                 <tr id="<?php echo $ligne_loisirs['id_loisir']; ?>">
                                                     <td><?= $ligne_loisirs['loisir'];?></td>
-                                                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                                    <td><a href="<?php echo $ligne_loisirs['id_loisir']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td><a href="../pages/modif_loisirs.php?id_loisir=<?php echo $ligne_loisirs['id_loisir']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                                    <td><a id="suppression" href="<?php echo $ligne_loisirs['id_loisir']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

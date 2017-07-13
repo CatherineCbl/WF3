@@ -63,7 +63,7 @@ include '../inc/nav.inc.php';
                                                 <?php foreach ($ligne_competence as $ligne_competences) : ?>
                                                 <tr id="<?php echo $ligne_competences['id_competence']; ?>">
                                                     <td><?= $ligne_competences['competence'];?></td>
-                                                    <td><a href="../modifications/modif_competences.php?id_competence=<?php echo $ligne_competences['id_competence']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                                    <td><a href="../pages/modif_competences.php?id_competence=<?php echo $ligne_competences['id_competence']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
                                                     <td><a id="suppression" href="<?php echo $ligne_competences['id_competence']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>

@@ -67,8 +67,8 @@ include '../inc/nav.inc.php';
                                                     <td><?= $ligne_realisations['titre_r'];?></td>
                                                     <td><?= $ligne_realisations['description_r'];?></td>
                                                     <td><?= $ligne_realisations['dates_r'];?></td>
-                                                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                                    <td><a href="<?php echo $ligne_realisations['id_realisation']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td><a href="../pages/modif_realisations.php?id_realisation=<?php echo $ligne_realisations['id_realisation']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                                    <td><a id="suppression" href="<?php echo $ligne_realisations['id_realisation']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -110,11 +110,11 @@ include '../inc/nav.inc.php';
 
 
 
-    <!-- ckeditor -->
+    <!-- ckeditor
     <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
     <script>
     CKEDITOR.replace( 'description_r' );
-    </script>
+    </script> -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>

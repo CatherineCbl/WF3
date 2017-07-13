@@ -2,6 +2,7 @@ $(function() {
 
     $(document).on("click", "#button_experience", function(e) {
         e.preventDefault();
+        // var value = CKEDITOR.instances['#description_e'].updateElement();
 
         $.ajax({
             url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_experience.php',
@@ -35,13 +36,13 @@ $(function() {
         })
     });
 
-    $('td>a').on("click", function(e) {
+    $('td>a#suppression').on("click", function(e) {
         e.preventDefault();
     });
 
     $(document).on("click", ".glyphicon-trash", function(e) {
         let id_tr = $(this).parent().parent().parent();
-        console.log(id_tr);
+
 
         if (confirm('Voulez-vous vraiment supprimer cette experience?')) {
           $.ajax({
@@ -63,5 +64,5 @@ $(function() {
         }
 
     })
-    $(".nb_experiences")
+    //$(".nb_experiences")
 });

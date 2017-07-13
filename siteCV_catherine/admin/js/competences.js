@@ -21,7 +21,7 @@ $(function() {
         })
     });
 
-    $('#suppression').on("click", function(e) {
+    $('td>a#suppression').on("click", function(e) {
         e.preventDefault();
     });
 

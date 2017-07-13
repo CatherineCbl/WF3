@@ -69,8 +69,8 @@ include '../inc/nav.inc.php';
                                                     <td><?= $ligne_experiences['sous_titre_e'];?></td>
                                                     <td><?= $ligne_experiences['description_e'];?></td>
                                                     <td><?= $ligne_experiences['dates_e'];?></td>
-                                                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                                    <td><a href="<?php echo $ligne_experiences['id_experience']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td><a href="../pages/modif_experiences.php?id_experience=<?php echo $ligne_experiences['id_experience']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                                    <td><a id="suppression" href="<?php echo $ligne_experiences['id_experience']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

@@ -1,35 +1,50 @@
 $(function() {
+
     $(document).on("click", "#button_realisation", function(e) {
         e.preventDefault();
+        // var value = CKEDITOR.instances['#description_r'].updateElement();
+
         $.ajax({
             url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_realisation.php',
             type: 'POST',
             data: {
-                realisation : $("#realisation").val()
+                titre_r : $("#titre_r").val(),
+                sous_titre_r : $("#sous_titre_r").val(),
+                description_r : $("#description_r").val(),
+                dates_r : $("#dates_r").val()
             }
             })
-            .done(function(realisation){
-                data = JSON.parse(realisation);
+            .done(function(data){
+                data = JSON.parse(data);
                 //console.log(data.realisation);
                 $('tr').last().after(`<tr>
-                    <td>`+data.realisation+`</td>
+                    <td>`+data.titre_r+`</td>
+                    <td>`+data.sous_titre_r+`</td>
+                    <td>`+data.description_r+`</td>
+                    <td>`+data.dates_r+`</td>
                     <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                    <td><a href="realisations.php?id_realisation=`+data.id_realisation+`"> <span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>`)
+                    <td><a href="experiences.php?id_experience=`+data.id_realisation+`"> <span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>`);
+
+
                 $('#success_add').removeClass('hide');
                 setTimeout(function(){ $('#success_add').addClass('hide'); },2000);
+
+            ;
+
+
         })
     });
 
-    $('td>a').on("click", function(e) {
+    $('td>a#suppression').on("click", function(e) {
         e.preventDefault();
     });
 
     $(document).on("click", ".glyphicon-trash", function(e) {
         let id_tr = $(this).parent().parent().parent();
-        console.log(id_tr);
 
-        if (confirm('Voulez-vous vraiment supprimer cette realisation?')) {
+
+        if (confirm('Voulez-vous vraiment supprimer cette réalisation?')) {
           $.ajax({
               url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_realisation.php',
               type: 'POST',
@@ -49,4 +64,5 @@ $(function() {
         }
 
     })
+    //$(".nb_realisations")
 });

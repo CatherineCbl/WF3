@@ -1,18 +1,18 @@
 <?php require '../../connexion/connexion.php';
  ?>
 <?php
-// Gestion des contenus, mise à jour d'une compétence
-if(isset($_POST['competence'])){
-	$competence = addslashes($_POST['competence']);
-	$id_competence = $_POST['id_competence'];
-	$pdoCV->exec(" UPDATE t_competences SET competence='$competence' WHERE id_competence='$id_competence' ");
-	header('location: ../pages/competences.php');
+// Gestion des contenus, mise à jour d'une Loisir
+if(isset($_POST['loisir'])){
+	$loisir = addslashes($_POST['loisir']);
+	$id_loisir = $_POST['id_loisir'];
+	$pdoCV->exec(" UPDATE t_loisirs SET loisir='$loisir' WHERE id_loisir='$id_loisir' ");
+	header('location: ../pages/loisirs.php');
 	exit();
 }
-// Je recupere la competence
-$id_competence = $_GET['id_competence']; // par l'id et $_GET
-$sql = $pdoCV->query(" SELECT * FROM t_competences WHERE id_competence = '$id_competence' "); // la requête égale à l'id
-$ligne_competences = $sql->fetch(); //
+// Je recupere la loisir
+$id_loisir = $_GET['id_loisir']; // par l'id et $_GET
+$sql = $pdoCV->query(" SELECT * FROM t_loisirs WHERE id_loisir = '$id_loisir' "); // la requête égale à l'id
+$ligne_loisirs = $sql->fetch(); //
 
 ?>
 <!DOCTYPE html>
@@ -46,15 +46,6 @@ $ligne_competences = $sql->fetch(); //
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="../css/monstyle.css">
-
-
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,20 +65,20 @@ $ligne_competences = $sql->fetch(); //
 	<div id="page-content-wrapper">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-12 ">
+				<div class="col-lg-12">
 					<section id="intro" class="intro-section">
-						<form class="form-horizontal" method="post" action="modif_competences.php">
+						<form class="form-horizontal" method="post" action="modif_loisirs.php">
 							<fieldset>
 
 								<!-- Form Name -->
-								<legend>Modification competence</legend>
+								<legend>Modification loisir</legend>
 
 								<!-- Text input-->
 								<div class="form-group">
-									<label for="competence" class="col-md-4 control-label" >Compétence</label>
+									<label for="loisir" class="col-md-4 control-label" >Loisir</label>
 									<div class="col-md-4">
-										<input name="competence" type="text" class="form-control input-md" value="<?= $ligne_competences['competence']; ?>">
-										<input name="id_competence" hidden value="<?= $ligne_competences['id_competence']; ?>">
+										<input name="loisir" type="text" class="form-control input-md" value="<?= $ligne_loisirs['loisir']; ?>">
+										<input name="id_loisir" hidden value="<?= $ligne_loisirs['id_loisir']; ?>">
 									</div>
 								</div>
 
@@ -96,7 +87,7 @@ $ligne_competences = $sql->fetch(); //
 									<label class="col-md-4 control-label" for=""></label>
 									<div class="col-md-4">
 										<button type="submit" class="btn btn-primary">Mettre à jour</button>
-                                        <a href="competences.php"><button type="button" name="button" class="btn btn-danger">Annuler</button></a> 
+                                        <a href="loisirs.php"><button type="button" name="button" class="btn btn-danger">Annuler</button></a>
 									</div>
 								</div>
 

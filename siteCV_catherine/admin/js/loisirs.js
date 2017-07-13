@@ -20,7 +20,7 @@ $(function() {
                 setTimeout(function(){ $('#success_add').addClass('hide'); },2000);
         })
     });
-    $('td>a').on("click", function(e) {
+    $('td>a#suppression').on("click", function(e) {
         e.preventDefault();
     });
 

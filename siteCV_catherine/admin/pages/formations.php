@@ -44,11 +44,14 @@ include '../inc/nav.inc.php';
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <em><?php if ($nb_formations <= 1): ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_formations. " formation."?>
+                                    <?php if ($nb_formations <= 1): ?>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré <span class='nb_experiences'><em id='count'> " .$nb_formations. "</em></span> expérience."?>
                                     <?php else: ?>
-                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré " .$nb_formations. " formations."?>
-                                    <?php endif; ?></em>
+                                        <?= $ligne_utilisateur['pseudo'].", vous avez enregistré <span class='nb_experiences'><em id='count'>" .$nb_formations. "</em></span> expériences."?>
+                                    <?php endif; ?>
+
+
+
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -69,8 +72,8 @@ include '../inc/nav.inc.php';
                                                     <td><?= $ligne_formations['sous_titre_f'];?></td>
                                                     <td><?= $ligne_formations['description_f'];?></td>
                                                     <td><?= $ligne_formations['dates_f'];?></td>
-                                                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                                    <td><a href="<?php echo $ligne_formations['id_formation']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td><a href="../pages/modif_formations.php?id_formation=<?php echo $ligne_formations['id_formation']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                                    <td><a id="suppression" href="<?php echo $ligne_formations['id_formation']; ?>"><span class="glyphicon glyphicon-trash"></span></a></td>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
