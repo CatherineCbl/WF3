@@ -5,7 +5,7 @@ $(function() {
     $(document).on("click", "#button_formation", function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_formation.php',
+            url: /*'/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_formation.php',
             type: 'POST',
             data: {
                 titre_f : $("#titre_f").val(),

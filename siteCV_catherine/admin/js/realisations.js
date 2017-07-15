@@ -5,7 +5,7 @@ $(function() {
         // var value = CKEDITOR.instances['#description_r'].updateElement();
 
         $.ajax({
-            url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_realisation.php',
+            url:/* '/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_realisation.php',
             type: 'POST',
             data: {
                 titre_r : $("#titre_r").val(),
