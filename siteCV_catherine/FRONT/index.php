@@ -1,9 +1,11 @@
+<?php require '../connexion/connexion.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>Site CV de Catherine CABEUIL</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -25,6 +27,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<?php
+$sql = $pdoCV->query("SELECT * FROM t_utilisateurs WHERE utilisateur_id='1' ");
+$ligne_utilisateur = $sql->fetch();//va chercher sur une ligne!
+
+?>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <div id="preloader">
   <div id="status"> <img src="img/preloader.gif" height="64" width="64" alt=""> </div>
@@ -360,7 +367,7 @@
 <div id="contact" class="text-center">
   <div class="container">
     <div class="section-title center">
-      <h2>Contact us</h2>
+      <h2>Contactez-moi...</h2>
       <hr>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
     </div>
@@ -373,7 +380,7 @@
       </div>
       <div class="col-md-4">
         <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
-          <p>info@company.com</p>
+          <p><?php $ligne_utilisateur['email'];  ?></p>
         </div>
       </div>
       <div class="col-md-4">
@@ -385,7 +392,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="col-md-8 col-md-offset-2">
-      <h3>Leave us a message</h3>
+      <h3>Envoyez-moi un message</h3>
       <form name="sentMessage" id="contactForm" novalidate>
         <div class="row">
           <div class="col-md-6">
@@ -406,17 +413,13 @@
           <p class="help-block text-danger"></p>
         </div>
         <div id="success"></div>
-        <button type="submit" class="btn btn-default">Send Message</button>
+        <button type="submit" class="btn btn-default">Envoyer</button>
       </form>
       <div class="social">
-        <h3>Follow us</h3>
+        <h3>Suivez-moi...</h3>
         <ul>
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-          <li><a href="#"><i class="fa fa-github"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/CatherineCbl"><i class="fa fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/catherine-cabeuil/"><i class="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
     </div>
