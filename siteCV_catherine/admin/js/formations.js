@@ -5,7 +5,7 @@ $(function() {
     $(document).on("click", "#button_formation", function(e) {
         e.preventDefault();
         $.ajax({
-            url: /*'/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_formation.php',
+            url: '/WF3/siteCV_catherine/admin/ajouts/ajout_formation.php',
             type: 'POST',
             data: {
                 titre_f : $("#titre_f").val(),
@@ -44,7 +44,7 @@ $(function() {
 
         if (confirm('Voulez-vous vraiment supprimer cette formation?')) {
           $.ajax({
-              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_formation.php',
+              url: '/WF3/siteCV_catherine/admin/suppressions/suppression_formation.php',
               type: 'POST',
               data: {
                   formation : $(this).parent().attr('href')

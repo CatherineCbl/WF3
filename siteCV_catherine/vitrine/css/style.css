@@ -137,7 +137,7 @@ hr {
 }
 .navbar-custom .nav li a:hover {
 	outline: 0;
-	color: #E75926;
+	color: pink;
 	background-color: transparent;
 }
 .navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
@@ -153,6 +153,9 @@ hr {
 }
 .navbar-custom .nav li.active a:hover {
 	color: #fff;
+}
+.active{
+	background-color: pink;
 }
 /* Home Section */
 #intro {
@@ -219,6 +222,7 @@ hr {
 .section-title h2, .section-title.center h2 {
 	margin-bottom: 30px;
 }
+
 /* About Section */
 #about {
 	padding: 140px 0;

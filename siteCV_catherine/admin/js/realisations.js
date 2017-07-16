@@ -5,7 +5,7 @@ $(function() {
         // var value = CKEDITOR.instances['#description_r'].updateElement();
 
         $.ajax({
-            url:/* '/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_realisation.php',
+            url:'/WF3/siteCV_catherine/admin/ajouts/ajout_realisation.php',
             type: 'POST',
             data: {
                 titre_r : $("#titre_r").val(),
@@ -46,7 +46,7 @@ $(function() {
 
         if (confirm('Voulez-vous vraiment supprimer cette réalisation?')) {
           $.ajax({
-              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_realisation.php',
+              url: '/WF3/siteCV_catherine/admin/suppressions/suppression_realisation.php',
               type: 'POST',
               data: {
                   realisation : $(this).parent().attr('href')

@@ -2,7 +2,7 @@ $(function() {
     $(document).on("click", "#button_loisir", function(e) {
         e.preventDefault();
         $.ajax({
-            url: /*'/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_loisir.php',
+            url: '/WF3/siteCV_catherine/admin/ajouts/ajout_loisir.php',
             type: 'POST',
             data: {
                 loisir : $("#loisir").val()
@@ -30,7 +30,7 @@ $(function() {
 
         if (confirm('Voulez-vous vraiment supprimer ce loisir?')) {
           $.ajax({
-              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_loisir.php',
+              url: '/WF3/siteCV_catherine/admin/suppressions/suppression_loisir.php',
               type: 'POST',
               datatype: 'html',
               data: {

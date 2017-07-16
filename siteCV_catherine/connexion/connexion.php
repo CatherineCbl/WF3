@@ -1,8 +1,8 @@
 <?php
 $hote='localhost';// le chemin vers le serveur
-$bdd='sites_catherine'; // le nom de la base de données
+$bdd='sitecv_catherine'; // le nom de la base de données
 $utilisateur='root';//le nom d'utilisateur pour se connecter
-$passe='root'; // mot de passe d'utilisateur
+$passe=''; // mot de passe d'utilisateur
 //$passe='root'; //mot de passe mac en local
 $pdoCV = new PDO('mysql:host='.$hote.';dbname='.$bdd, $utilisateur,$passe);
 //SpdoCV est le nom de la variable de la connexion qui sert partout ou l'on doit se servir de cette connexion

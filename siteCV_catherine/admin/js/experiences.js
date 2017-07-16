@@ -5,7 +5,7 @@ $(function() {
         // var value = CKEDITOR.instances['#description_e'].updateElement();
 
         $.ajax({
-            url: /*'/github/*/'WF3/siteCV_catherine/admin/ajouts/ajout_experience.php',
+            url: '/WF3/siteCV_catherine/admin/ajouts/ajout_experience.php',
             type: 'POST',
             data: {
                 titre_e : $("#titre_e").val(),
@@ -46,7 +46,7 @@ $(function() {
 
         if (confirm('Voulez-vous vraiment supprimer cette experience?')) {
           $.ajax({
-              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_experience.php',
+              url: '/WF3/siteCV_catherine/admin/suppressions/suppression_experience.php',
               type: 'POST',
               data: {
                   experience : $(this).parent().attr('href')

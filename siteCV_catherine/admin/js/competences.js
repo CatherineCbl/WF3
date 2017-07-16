@@ -2,7 +2,7 @@ $(function() {
     $(document).on("click", "#button_competence", function(e) {
         e.preventDefault();
         $.ajax({
-            url: '/github/WF3/siteCV_catherine/admin/ajouts/ajout_competence.php',
+            url: '/WF3/siteCV_catherine/admin/ajouts/ajout_competence.php',
             type: 'POST',
             data: {
                 competence : $("#competence").val()
@@ -31,7 +31,7 @@ $(function() {
 
         if (confirm('Voulez-vous vraiment supprimer cette competence?')) {
           $.ajax({
-              url: '/github/WF3/siteCV_catherine/admin/suppressions/suppression_competence.php',
+              url: '/WF3/siteCV_catherine/admin/suppressions/suppression_competence.php',
               type: 'POST',
               data: {
                   competence : $(this).parent().attr('href')
